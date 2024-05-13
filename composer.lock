@@ -1,0 +1,63 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "5c218b9728c36a2d256c9b6b7f64cb7b",
+    "packages": [
+        {
+            "name": "zeiglerd/php-engine",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:zeiglerd/php-engine.git",
+                "reference": "38f879c14d22c477ca8a73bec4c392a629928c91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/38f879c14d22c477ca8a73bec4c392a629928c91",
+                "reference": "38f879c14d22c477ca8a73bec4c392a629928c91",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpquery/phpquery": "^0.0.4",
+                "phpunit/phpunit": "^9.6"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ZeiglerD\\PhpEngine\\": "src/",
+                    "ZeiglerD\\PhpEngine\\UnitTests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "./vendor/bin/phpunit tests"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Dustin Zeigler"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/zeiglerd/php-engine/tree/main",
+                "issues": "https://github.com/zeiglerd/php-engine/issues"
+            },
+            "time": "2024-05-06T07:12:10+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "zeiglerd/php-engine": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}
