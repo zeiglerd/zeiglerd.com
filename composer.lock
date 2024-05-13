@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c218b9728c36a2d256c9b6b7f64cb7b",
+    "content-hash": "1a435ec89c756a48f0bd24bf44e0f0a3",
     "packages": [
         {
             "name": "zeiglerd/php-engine",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zeiglerd/php-engine.git",
-                "reference": "38f879c14d22c477ca8a73bec4c392a629928c91"
+                "reference": "868cc7713e04498bf90ae96d9e6946f514ff623e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/38f879c14d22c477ca8a73bec4c392a629928c91",
-                "reference": "38f879c14d22c477ca8a73bec4c392a629928c91",
+                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/868cc7713e04498bf90ae96d9e6946f514ff623e",
+                "reference": "868cc7713e04498bf90ae96d9e6946f514ff623e",
                 "shasum": ""
             },
             "require-dev": {
@@ -46,7 +46,7 @@
                 "source": "https://github.com/zeiglerd/php-engine/tree/main",
                 "issues": "https://github.com/zeiglerd/php-engine/issues"
             },
-            "time": "2024-05-06T07:12:10+00:00"
+            "time": "2024-05-13T21:31:00+00:00"
         }
     ],
     "packages-dev": [],
