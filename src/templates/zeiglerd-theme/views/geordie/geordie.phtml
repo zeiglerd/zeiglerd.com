@@ -2,9 +2,63 @@
 <?php $this->renderPartial('head'); ?>
 <body>
   <?php $this->renderPartial('header'); ?>
-  <main>
-    <h1></h1>
-  </main>
+
+  <article id="geordie">
+    <aside>
+      <section>
+        <div id="deck" class="card-container">
+          <div class="card-slot" data-before-key="deck" style="--before-string: '';"></div>
+          <menu data-before-key="actions" style="--before-string: '';">
+            <li><button class="success" data-locale-key="start_game"></button></li>
+          </menu>
+        </div>
+      </section>
+      <section>
+        <div id="discard" class="card-container">
+          <menu data-before-key="actions" style="--before-string: '';">
+            <li><button class="primary" data-locale-key="shuffle_deck" disabled></button></li>
+          </menu>
+          <div class="card-slot" data-before-key="discard" style="--before-string: '';"></div>
+        </div>
+      </section>
+    </aside>
+    <main>
+      <section>
+        <div id="ongoing" class="card-container">
+          <div class="card-slot" data-before-key="ongoing" style="--before-string: '';"></div>
+          <menu data-before-key="actions" style="--before-string: '';">
+            <li><button class="primary" data-locale-key="finish_turn" disabled></button></li>
+          </menu>
+        </div>
+      </section>
+      <section>
+        <div id="red-or-black" class="card-container">
+          <menu data-before-key="actions" style="--before-string: '';">
+            <li><button class="danger" data-locale-key="red" disabled></button></li>
+            <li><button class="dark" data-locale-key="black" disabled></button></li>
+          </menu>
+          <div class="card-slot" data-before-key="red_or_black" style="--before-string: '';"></div>
+        </div>
+        <div id="higher-or-lower" class="card-container">
+          <menu data-before-key="actions" style="--before-string: '';">
+            <li><button class="success" data-locale-key="higher" disabled></button></li>
+            <li><button class="warning" data-locale-key="lower" disabled></button></li>
+            <li><button class="danger" data-locale-key="same_x1" disabled></button></li>
+          </menu>
+          <div class="card-slot" data-before-key="higher_or_lower" style="--before-string: '';"></div>
+        </div>
+        <div id="inside-or-outside" class="card-container">
+          <menu data-before-key="actions" style="--before-string: '';">
+            <li><button class="success" data-locale-key="inside" disabled></button></li>
+            <li><button class="warning" data-locale-key="outside" disabled></button></li>
+            <li><button class="danger" data-locale-key="same_x2" disabled></button></li>
+          </menu>
+          <div class="card-slot" data-before-key="inside_or_outside" style="--before-string: '';"></div>
+        </div>
+      </section>
+    </main>
+  </article>
+
   <?php $this->renderPartial('footer'); ?>
   <?php $this->renderPartial('foot'); ?>
 </body>

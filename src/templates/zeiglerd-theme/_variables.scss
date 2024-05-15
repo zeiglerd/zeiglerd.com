@@ -1,7 +1,33 @@
 @import '../../../vendor/zeiglerd/php-engine/src/templates/core/variables';
 
-$primary-color: rgba(55, 156, 244, 1);
-$secondary-color: rgba(69, 89, 167, 1);
+$color-primary: rgb(13,110,253);
+$color-primary-action: darken($color-primary, 30%);
+$color-primary-hover: darken($color-primary, 20%);
 
-$dark-color: rgba(14, 17, 17, 1);
-$light-color: rgba(249, 249, 249, 1);
+$color-secondary: rgb(108,117,125);
+$color-secondary-action: darken($color-secondary, 30%);
+$color-secondary-hover: darken($color-secondary, 20%);
+
+$color-success: rgb(25,135,84);
+$color-success-action: darken($color-success, 30%);
+$color-success-hover: darken($color-success, 20%);
+
+$color-danger: rgb(220,53,69);
+$color-danger-action: darken($color-danger, 30%);
+$color-danger-hover: darken($color-danger, 20%);
+
+$color-warning: rgb(255,193,7);
+$color-warning-action: darken($color-warning, 30%);
+$color-warning-hover: darken($color-warning, 20%);
+
+$color-info: rgb(13,202,240);
+$color-info-action: darken($color-info, 30%);
+$color-info-hover: darken($color-info, 20%);
+
+$color-light: rgb(248,249,250);
+$color-light-action: darken($color-light, 30%);
+$color-light-hover: darken($color-light, 20%);
+
+$color-dark: rgb(33,37,41);
+$color-dark-action: darken($color-dark, 30%);
+$color-dark-hover: darken($color-dark, 20%);

@@ -1,8 +1,9 @@
 @import './variables';
+@import './functions';
 @import './reset';
 
 @import './views/geordie/geordie';
 
-* {
-  color: $primary-color;
+body {
+  background: $color-light;
 }
