@@ -1,14 +1,15 @@
 const DEBUG = 0
+const CLICK_DELAY = 350
 
 const cardPath = '/images/templates/zeiglerd-theme/views/geordie'
 
 $(() => {
-  const $deckContainer = $('#deck').find('.card-slot')
-  const $discardContainer = $('#discard').find('.card-slot')
-  const $ongoingContainer = $('#ongoing').find('.card-slot')
-  const $redOrBlackContainer = $('#red-or-black').find('.card-slot')
-  const $higherOrLowerContainer = $('#higher-or-lower').find('.card-slot')
-  const $insideOrOutsideContainer = $('#inside-or-outside').find('.card-slot')
+  const $deckCard = $('#deck').find('.card')
+  const $discardCard = $('#discard').find('.card')
+  const $ongoingCard = $('#ongoing').find('.card')
+  const $redOrBlackCard = $('#red-or-black').find('.card')
+  const $higherOrLowerCard = $('#higher-or-lower').find('.card')
+  const $insideOrOutsideCard = $('#inside-or-outside').find('.card')
 
   const shuffleArray = (array) => {
     return array
@@ -30,100 +31,99 @@ $(() => {
 
       window.geordie.localeMap.suits.forEach((suit) => {
         window.geordie.localeMap.cards.forEach((card) => {
-          const $card = $(`<div class="card" />`)
-          $card.attr('data-deck-id', deck.state.length)
-          $card.attr('style', `--background-url: url(${cardPath}/backs/astronaut.svg)`)
-
-          card = {
-            value: card.value,
-            key: window.geordie.getLocaleKey(card.key),
-          }
-
-          suit = {
-            colorKey: window.geordie.getLocaleKey(suit.colorKey),
-            color: window.geordie.getLocale(suit.colorKey),
-            suitKey: window.geordie.getLocaleKey(suit.suitKey),
-            suit: window.geordie.getLocale(suit.suitKey)
-          }
-
-          if (DEBUG) {
-            $card.attr('style', `--background-url: url(${cardPath}/fronts/${suit.suitKey}_${card.key}.svg)`)
-          }
-
-          deck.state.push({ $card, card, suit })
+          deck.state.push({
+            card: {
+              value: card.value,
+              key: window.geordie.getLocaleKey(card.key),
+            },
+            suit: {
+              colorKey: window.geordie.getLocaleKey(suit.colorKey),
+              color: window.geordie.getLocale(suit.colorKey),
+              suitKey: window.geordie.getLocaleKey(suit.suitKey),
+              suit: window.geordie.getLocale(suit.suitKey)
+            }
+          })
         })
       })
 
-      deck.state = shuffle
-        ? shuffleArray(deck.state)
-        : deck.state
+      deck.state = shuffle ? shuffleArray(deck.state) : deck.state
     },
     render: () => {
-      $deckContainer.empty()
-      deck.state.forEach((card) => {
-        card.$card.fadeIn(128)
-        $deckContainer.append(card.$card)
-      })
+      if (deck.state && deck.state.length) {
+        $deckCard.find('img').attr('src', `${cardPath}/backs/astronaut.svg`);
+      } else {
+        $deckCard.find('img').attr('src', `${cardPath}/other/blank_card_no_fill.svg`);
+      }
     }
   }
 
   const discard = {
     state: [],
     render: () => {
-      $discardContainer.empty()
-      discard.state.forEach((card) => {
-        card.$card.fadeIn(128)
-        $discardContainer.append(card.$card)
-      })
+      if (discard.state && discard.state.length) {
+        const lastCard = discard.state[discard.state.length - 1]
+        $discardCard.find('img')
+          .attr('src', `${cardPath}/fronts/${lastCard.suit.suitKey}_${lastCard.card.key}.svg`);
+      } else {
+        $discardCard.find('img').attr('src', `${cardPath}/other/blank_card_no_fill.svg`);
+      }
     }
   }
 
   const ongoing = {
     state: [],
     render: () => {
-      $ongoingContainer.empty()
-      ongoing.state.forEach((card) => {
-        card.$card.fadeIn(128)
-        $ongoingContainer.append(card.$card)
-      })
+      if (ongoing.state && ongoing.state.length) {
+        const lastCard = ongoing.state[ongoing.state.length - 1]
+        $ongoingCard.find('img')
+          .attr('src', `${cardPath}/fronts/${lastCard.suit.suitKey}_${lastCard.card.key}.svg`);
+      } else {
+        $ongoingCard.find('img').attr('src', `${cardPath}/other/blank_card_no_fill.svg`);
+      }
     }
   }
 
   const redOrBlack = {
     state: [],
     render: () => {
-      $redOrBlackContainer.empty()
-      redOrBlack.state.forEach((card) => {
-        card.$card.fadeIn(128)
-        $redOrBlackContainer.append(card.$card)
-      })
+      if (redOrBlack.state && redOrBlack.state.length) {
+        const lastCard = redOrBlack.state[redOrBlack.state.length - 1]
+        $redOrBlackCard.find('img')
+          .attr('src', `${cardPath}/fronts/${lastCard.suit.suitKey}_${lastCard.card.key}.svg`);
+      } else {
+        $redOrBlackCard.find('img').attr('src', `${cardPath}/other/blank_card_no_fill.svg`);
+      }
     }
   }
 
   const higherOrLower = {
     state: [],
     render: () => {
-      $higherOrLowerContainer.empty()
-      higherOrLower.state.forEach((card) => {
-        card.$card.fadeIn(128)
-        $higherOrLowerContainer.append(card.$card)
-      })
+      if (higherOrLower.state && higherOrLower.state.length) {
+        const lastCard = higherOrLower.state[higherOrLower.state.length - 1]
+        $higherOrLowerCard.find('img')
+          .attr('src', `${cardPath}/fronts/${lastCard.suit.suitKey}_${lastCard.card.key}.svg`);
+      } else {
+        $higherOrLowerCard.find('img').attr('src', `${cardPath}/other/blank_card_no_fill.svg`);
+      }
     }
   }
 
   const insideOrOutside = {
     state: [],
     render: () => {
-      $insideOrOutsideContainer.empty()
-      insideOrOutside.state.forEach((card) => {
-        card.$card.fadeIn(128)
-        $insideOrOutsideContainer.append(card.$card)
-      })
+      if (insideOrOutside.state && insideOrOutside.state.length) {
+        const lastCard = insideOrOutside.state[insideOrOutside.state.length - 1]
+        $insideOrOutsideCard.find('img')
+          .attr('src', `${cardPath}/fronts/${lastCard.suit.suitKey}_${lastCard.card.key}.svg`);
+      } else {
+        $insideOrOutsideCard.find('img').attr('src', `${cardPath}/other/blank_card_no_fill.svg`);
+      }
     }
   }
 
-  let $lastButtons
-  let $lastScrollIntoView
+  let lastButtons
+  let lastScrollIntoView
   const toggleButtons = (buttons, scrollIntoView) => {
     const selector = buttons.map((button) => `[data-locale-key=${button}]`).join(',')
 
@@ -132,105 +132,111 @@ $(() => {
     if (deck.state.length) {
       $(selector).prop('disabled', false)
 
-      scrollIntoView.scrollIntoView()
+      $(scrollIntoView)[0].scrollIntoView()
     } else {
-      $lastButtons = buttons
-      $lastScrollIntoView = scrollIntoView
+      lastButtons = buttons
+      lastScrollIntoView = scrollIntoView
 
       $('[data-locale-key=shuffle_deck]').prop('disabled', false)
 
-      $discardContainer.scrollIntoView()
+      $('#discard')[0].scrollIntoView()
     }
   }
 
   const takeCard = () => {
     const card = deck.state.pop()
-    card.$card.attr('style', `--background-url: url(${cardPath}/fronts/${card.suit.suitKey}_${card.card.key}.svg)`)
+    deck.render()
     return card
   }
 
-  const startTurn = (turn, doDiscard) => {
-    switch(turn) {
+  const cleanUp = (doDiscard) => {
+    to = doDiscard ? discard : ongoing
+
+    if (doDiscard) {
+      ongoing.state.forEach((each) => {
+        to.state.push(each)
+      })
+      ongoing.state = []
+      ongoing.render()
+    }
+
+    if (redOrBlack.state.length) {
+      redOrBlack.state.forEach((each) => {
+        to.state.push(each)
+      })
+      redOrBlack.state = []
+      redOrBlack.render()
+    }
+
+    if (higherOrLower.state.length) {
+      higherOrLower.state.forEach((each) => {
+        to.state.push(each)
+      })
+      higherOrLower.state = []
+      higherOrLower.render()
+    }
+
+    if (insideOrOutside.state.length) {
+      insideOrOutside.state.forEach((each) => {
+        to.state.push(each)
+      })
+      insideOrOutside.state = []
+      insideOrOutside.render()
+    }
+
+    to.render()
+  }
+
+  const nextStep = (step, doDiscard) => {
+    switch(step) {
       case 'redOrBlack':
-        if (redOrBlack.state.length) {
-          redOrBlack.state.forEach((each) => {
-            ongoing.state.push(each)
-          })
-          redOrBlack.state = []
-        }
-        if (higherOrLower.state.length) {
-          higherOrLower.state.forEach((each) => {
-            ongoing.state.push(each)
-          })
-          higherOrLower.state = []
-          higherOrLower.render()
-        }
-        if (insideOrOutside.state.length) {
-          insideOrOutside.state.forEach((each) => {
-            ongoing.state.push(each)
-          })
-          insideOrOutside.state = []
-          insideOrOutside.render()
-        }
-        if (doDiscard) {
-          ongoing.state.forEach((each) => {
-            discard.state.push(each)
-          })
-          ongoing.state = []
-          discard.render()
-        }
-        ongoing.render()
+        cleanUp(doDiscard)
 
         redOrBlack.state.push(takeCard())
         redOrBlack.render()
-        deck.render()
 
-        toggleButtons(['red', 'black'], $redOrBlackContainer[0])
+        toggleButtons(['red', 'black'], '#red-or-black')
         break
 
       case 'higherOrLower':
         higherOrLower.state.push(takeCard())
         higherOrLower.render()
-        deck.render()
 
-        toggleButtons(['higher', 'lower', 'same_x1'], $higherOrLowerContainer[0])
+        toggleButtons(['higher', 'lower', 'same_x1'], '#higher-or-lower')
         break
 
       case 'insideOrOutside':
         insideOrOutside.state.push(takeCard())
         insideOrOutside.render()
-        deck.render()
 
-        toggleButtons(['inside', 'outside', 'same_x2'], $insideOrOutsideContainer[0])
+        toggleButtons(['inside', 'outside', 'same_x2'], '#inside-or-outside')
         break
 
       case 'ongoing':
-        toggleButtons(['finish_turn'], $ongoingContainer[0])
+        toggleButtons(['finish_turn'], '#ongoing')
         break
     }
   }
 
   let lastClick
   $('button').click((e) => {
-    if (lastClick && Date.now() - lastClick < 350) {
+    if (lastClick && Date.now() - lastClick < CLICK_DELAY) {
       return
     }
     lastClick = Date.now()
 
     let redBlackCard
-    let higherLowerCard
-    let insideOutsideCard
-    let higherCard
-    let lowerCard
+    let higherOrLowerCard
+    let insideOrOutsideCard
 
-    const actionKey = $(e.target).data('locale-key')
+    const action = $(e.target).data('locale-key')
 
-    switch(actionKey) {
+    switch(action) {
       case 'start_game':
         if (!deck.state) {
           deck.deal(true)
 
-          startTurn('redOrBlack')
+          nextStep('redOrBlack')
         }
         break
 
@@ -245,7 +251,7 @@ $(() => {
           deck.state = shuffleArray(deck.state)
           deck.render()
 
-          toggleButtons($lastButtons, $lastScrollIntoView)
+          toggleButtons(lastButtons, lastScrollIntoView)
         }
         break
 
@@ -255,11 +261,11 @@ $(() => {
           redBlackCard = redOrBlack.state[redOrBlack.state.length - 1]
 
           if ((DEBUG > 1) || (
-            actionKey === redBlackCard.suit.colorKey
+            action === redBlackCard.suit.colorKey
           )) {
-            startTurn('higherOrLower')
+            nextStep('higherOrLower')
           } else {
-            startTurn('redOrBlack')
+            nextStep('redOrBlack')
           }
         }
         break
@@ -269,26 +275,26 @@ $(() => {
       case 'same_x1':
         if (redOrBlack.state.length && higherOrLower.state.length && !insideOrOutside.state.length) {
           redBlackCard = redOrBlack.state[redOrBlack.state.length - 1]
-          higherLowerCard = higherOrLower.state[higherOrLower.state.length - 1]
+          higherOrLowerCard = higherOrLower.state[higherOrLower.state.length - 1]
 
           if ((DEBUG > 1) || (
             (
-              actionKey === 'higher' && (
-                higherLowerCard.card.value > redBlackCard.card.value
+              action === 'higher' && (
+                higherOrLowerCard.card.value > redBlackCard.card.value
               )
             ) || (
-              actionKey === 'lower' && (
-                higherLowerCard.card.value < redBlackCard.card.value
+              action === 'lower' && (
+                higherOrLowerCard.card.value < redBlackCard.card.value
               )
             ) || (
-              actionKey === 'same_x1' && (
-                higherLowerCard.card.value === redBlackCard.card.value
+              action === 'same_x1' && (
+                higherOrLowerCard.card.value === redBlackCard.card.value
               )
             )
           )) {
-            startTurn('insideOrOutside')
+            nextStep('insideOrOutside')
           } else {
-            startTurn('redOrBlack')
+            nextStep('redOrBlack')
           }
         }
         break
@@ -298,40 +304,40 @@ $(() => {
       case 'same_x2':
         if (redOrBlack.state.length && higherOrLower.state.length && insideOrOutside.state.length) {
           redBlackCard = redOrBlack.state[redOrBlack.state.length - 1]
-          higherLowerCard = higherOrLower.state[higherOrLower.state.length - 1]
-          insideOutsideCard = insideOrOutside.state[insideOrOutside.state.length - 1]
+          higherOrLowerCard = higherOrLower.state[higherOrLower.state.length - 1]
+          insideOrOutsideCard = insideOrOutside.state[insideOrOutside.state.length - 1]
 
-          higherCard = redBlackCard.card.value > higherLowerCard.card.value ? redBlackCard : higherLowerCard
-          lowerCard = redBlackCard.card.value > higherLowerCard.card.value ? higherLowerCard : redBlackCard
+          const higherCard = redBlackCard.card.value > higherOrLowerCard.card.value ? redBlackCard : higherOrLowerCard
+          const lowerCard = redBlackCard.card.value > higherOrLowerCard.card.value ? higherOrLowerCard : redBlackCard
 
           if ((DEBUG > 1) || (
             (
-              actionKey === 'inside' && (
-                insideOutsideCard.card.value > lowerCard.card.value
-                && insideOutsideCard.card.value < higherCard.card.value
+              action === 'inside' && (
+                insideOrOutsideCard.card.value > lowerCard.card.value
+                && insideOrOutsideCard.card.value < higherCard.card.value
               )
             ) || (
-              actionKey === 'outside' && (
-                insideOutsideCard.card.value < lowerCard.card.value
-                || insideOutsideCard.card.value > higherCard.card.value
+              action === 'outside' && (
+                insideOrOutsideCard.card.value < lowerCard.card.value
+                || insideOrOutsideCard.card.value > higherCard.card.value
               )
             ) || (
-              actionKey === 'same_x2' && (
-                insideOutsideCard.card.value === lowerCard.card.value
-                || insideOutsideCard.card.value === higherCard.card.value
+              action === 'same_x2' && (
+                insideOrOutsideCard.card.value === lowerCard.card.value
+                || insideOrOutsideCard.card.value === higherCard.card.value
               )
             )
           )) {
-            startTurn('ongoing')
+            nextStep('ongoing') // @NOTE Shows finish_turn button.
           } else {
-            startTurn('redOrBlack')
+            nextStep('redOrBlack')
           }
         }
         break
 
       case 'finish_turn':
         if (redOrBlack.state.length && higherOrLower.state.length && insideOrOutside.state.length) {
-          startTurn('redOrBlack', true)
+          nextStep('redOrBlack', true)
         }
         break
     }

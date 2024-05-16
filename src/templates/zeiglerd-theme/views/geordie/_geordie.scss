@@ -1,278 +1,131 @@
-article#geordie {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  // margin: 0 auto;
-  // max-width: 87.5em;
+#content:has(#geordie) {
+  align-self: center;
+  max-width: 87.5em;
+  width: 100%;
 
-  @media screen and (min-width: $xl-breakpoint) { flex-direction: row; }
+  hgroup {
 
-  .card-container {
-    color: $color-dark;
-    margin: $gap-size;
-
-    .card-slot {
-      border: calc(#{$one-px} * 2) dashed $color-dark;
-      height: calc(#{$gap-size} + 20.74em);
-      margin: 0 auto;
-      position: relative;
-      width: calc(#{$gap-size} + 14.598125em);
-
-      .card {
-        background: no-repeat center var(--background-url);
-        background-color: $color-light;
-        background-size: cover;
-        color: $color-dark;
-        height: 20.74em;
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 14.598125em;
-      }
-    }
-
-    [data-before-key]::before {
-      color: rgba($color-dark, .5);
-      content: var(--before-string);
-      left: 50%;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
+    h1 {
+      padding: $gap-size;
     }
   }
+}
 
-  menu {
-    border: calc(#{$one-px} * 2) solid $color-dark;
-    display: flex;
-    flex-direction: row;
-    height: 2.5em;
-    position: relative;
+#geordie {
+  @include flex();
 
-    &:not(:first-child) { border-top: none; }
-    &:first-child { border-bottom: none; }
+  @media screen and (min-width: $md-breakpoint) { flex-direction: row; }
+  @media screen and (min-width: $lg-breakpoint) {
+  }
 
-    li {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      list-style: none;
+  aside, main {
+    @include flex();
 
-      button {
-        border: calc(#{$one-px} * 2) solid;
-        cursor: pointer;
-        height: 100%;
-        width: 100%;
-        z-index: 1;
+    > section {
+      @include flex();
 
-        &:disabled { display: none; }
+      @media screen and (min-width: $lg-breakpoint) {
+        flex-direction: row;
+      }
 
-        &.danger {
-          background-color: $color-danger;
-          border-color: darken($color-danger, 10%);
-          color: $color-light;
-          &:hover {
-            background-color: darken($color-danger, 10%);
-            border-color: darken($color-danger, 20%);
-          }
-          &:focus {
-            background-color: darken($color-danger, 10%);
-            border-color: darken($color-danger, 20%);
-            box-shadow: 0 0 0 $one-px rgba($color-danger, .5);
-          }
-          &:active {
-            background-color: darken($color-danger, 20%);
-            border-color: darken($color-danger, 30%);
+      .outer-card-container {
+        @include flex();
+
+        color: $color-dark;
+        padding: $gap-size;
+        scroll-margin-top: pxtoem(10);
+
+        .inner-card-container {
+          @include flex();
+
+          border: pxtoem(2) dashed $color-dark;
+
+          .card {
+            @include flex();
+
+            background: no-repeat center var(--background-url);
+            background-size: cover;
+            color: $color-dark;
+
+            img {
+              // max-width: 300px;
+              z-index: 1;
+            }
           }
         }
 
-        &.dark {
-          background-color: $color-dark;
-          border-color: darken($color-dark, 10%);
-          color: $color-light;
-          &:hover {
-            background-color: darken($color-dark, 10%);
-            border-color: darken($color-dark, 20%);
-          }
-          &:focus {
-            background-color: darken($color-dark, 10%);
-            border-color: darken($color-dark, 20%);
-            box-shadow: 0 0 0 $one-px rgba($color-dark, .5);
-          }
-          &:active {
-            background-color: darken($color-dark, 20%);
-            border-color: darken($color-dark, 30%);
+        menu {
+          @include flex($direction: row);
+
+          border: pxtoem(2) solid $color-dark;
+          height: pxtoem(42);
+
+          &:not(:first-child) { border-top: none; }
+          &:first-child { border-bottom: none; }
+
+          li {
+            @include flex(1);
+
+            list-style: none;
+
+            button {
+              height: 100vh;
+              z-index: 1;
+
+              &:disabled { display: none; }
+            }
           }
         }
 
-        &.info {
-          background-color: $color-info;
-          border-color: darken($color-info, 10%);
-          color: $color-dark;
-          &:hover {
-            background-color: darken($color-info, 10%);
-            border-color: darken($color-info, 20%);
-          }
-          &:focus {
-            background-color: darken($color-info, 10%);
-            border-color: darken($color-info, 20%);
-            box-shadow: 0 0 0 $one-px rgba($color-info, .5);
-          }
-          &:active {
-            background-color: darken($color-info, 20%);
-            border-color: darken($color-info, 30%);
+        [data-before-key] {
+          position: relative;
+
+          &::before {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            color: rgba($color-dark, .2);
+            content: var(--before-string);
           }
         }
-
-        &.light {
-          background-color: $color-light;
-          border-color: darken($color-light, 10%);
-          color: $color-dark;
-          &:hover {
-            background-color: darken($color-light, 10%);
-            border-color: darken($color-light, 20%);
-          }
-          &:focus {
-            background-color: darken($color-light, 10%);
-            border-color: darken($color-light, 20%);
-            box-shadow: 0 0 0 $one-px rgba($color-light, .5);
-          }
-          &:active {
-            background-color: darken($color-light, 20%);
-            border-color: darken($color-light, 30%);
-          }
-        }
-
-        &.primary {
-          background-color: $color-primary;
-          border-color: darken($color-primary, 10%);
-          color: $color-light;
-          &:hover {
-            background-color: darken($color-primary, 10%);
-            border-color: darken($color-primary, 20%);
-          }
-          &:focus {
-            background-color: darken($color-primary, 10%);
-            border-color: darken($color-primary, 20%);
-            box-shadow: 0 0 0 $one-px rgba($color-primary, .5);
-          }
-          &:active {
-            background-color: darken($color-primary, 20%);
-            border-color: darken($color-primary, 30%);
-          }
-        }
-
-        &.secondary {
-          background-color: $color-secondary;
-          border-color: darken($color-secondary, 10%);
-          color: $color-light;
-          &:hover {
-            background-color: darken($color-secondary, 10%);
-            border-color: darken($color-secondary, 20%);
-          }
-          &:focus {
-            background-color: darken($color-secondary, 10%);
-            border-color: darken($color-secondary, 20%);
-            box-shadow: 0 0 0 $one-px rgba($color-secondary, .5);
-          }
-          &:active {
-            background-color: darken($color-secondary, 20%);
-            border-color: darken($color-secondary, 30%);
-          }
-        }
-
-        &.success {
-          background-color: $color-success;
-          border-color: darken($color-success, 10%);
-          color: $color-light;
-          &:hover {
-            background-color: darken($color-success, 10%);
-            border-color: darken($color-success, 20%);
-          }
-          &:focus {
-            background-color: darken($color-success, 10%);
-            border-color: darken($color-success, 20%);
-            box-shadow: 0 0 0 $one-px rgba($color-success, .5);
-          }
-          &:active {
-            background-color: darken($color-success, 20%);
-            border-color: darken($color-success, 30%);
-          }
-        }
-
-        &.warning {
-          background-color: $color-warning;
-          border-color: darken($color-warning, 10%);
-          color: $color-dark;
-          &:hover {
-            background-color: darken($color-warning, 10%);
-            border-color: darken($color-warning, 20%);
-          }
-          &:focus {
-            background-color: darken($color-warning, 10%);
-            border-color: darken($color-warning, 20%);
-            box-shadow: 0 0 0 $one-px rgba($color-warning, .5);
-          }
-          &:active {
-            background-color: darken($color-warning, 20%);
-            border-color: darken($color-warning, 30%);
-          }
-        }
-
       }
     }
   }
 
   aside {
     background: $color-dark;
-    display: flex;
-    flex-direction: column;
-    margin: 0 $gap-size;
 
-    @media screen and (min-width: $xl-breakpoint) { width: 25%; }
+    @media screen and (min-width: $md-breakpoint) { flex: 1; }
 
-    section {
-      display: flex;
-      flex-direction: column;
+    > section {
 
-      .card-container {
+      .outer-card-container {
         color: $color-light;
 
-        .card-slot {
-          border-color: $color-light;
-        }
+        @media screen and (min-width: $lg-breakpoint) { flex: 1; }
 
-        [data-before-key]::before {
-          color: rgba($color-light, .5);
-        }
-      }
+        .inner-card-container { border-color: $color-light; }
 
-      menu {
-        border-color: $color-light;
+        menu { border-color: $color-light; }
+
+        [data-before-key]::before { color: rgba($color-light, .5); }
       }
     }
   }
 
   main {
-    display: flex;
-    flex-direction: column;
 
-    @media screen and (min-width: $xl-breakpoint) { width: 75%; }
+    @media screen and (min-width: $md-breakpoint) { flex: 1; }
+    @media screen and (min-width: $lg-breakpoint) { flex: 3; }
 
-    section {
-      display: flex;
-      flex-direction: column;
+    > section {
 
-      @media screen and (min-width: $xl-breakpoint) {
-        flex-direction: row;
-      }
+      .outer-card-container {
 
-      #red-or-black,
-      #higher-or-lower,
-      #inside-or-outside {
-
-        @media screen and (min-width: $xl-breakpoint) {
-          width: 33.33333333333333%;
+        @media screen and (min-width: $lg-breakpoint) {
+          flex: 0 1 33.33333333333333%;
         }
       }
     }

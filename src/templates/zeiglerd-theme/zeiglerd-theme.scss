@@ -1,15 +1,10 @@
-@import './variables';
+@import '../../../vendor/zeiglerd/php-engine/src/templates/core/variables';
+@import '../../../vendor/zeiglerd/php-engine/src/templates/core/functions';
+@import '../../../vendor/zeiglerd/php-engine/src/templates/core/mixins';
+
+@import './variables'; // @TODO Somehow inject these into core template to override engine variables.
 @import './functions';
+@import './mixins';
 @import './reset';
 
 @import './views/geordie/geordie';
-
-body {
-  background: $color-light;
-
-  > #content {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-  }
-}
