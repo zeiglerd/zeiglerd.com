@@ -1,131 +1,128 @@
-#content:has(#geordie) {
+[data-page=geordie] {
+  @include flex(1);
+
   align-self: center;
-  max-width: 87.5em;
+  max-width: $max-width-fluid;
   width: 100%;
 
-  hgroup {
+  > hgroup {
 
-    h1 {
-      padding: $gap-size;
-    }
-  }
-}
-
-#geordie {
-  @include flex();
-
-  @media screen and (min-width: $md-breakpoint) { flex-direction: row; }
-  @media screen and (min-width: $lg-breakpoint) {
+    h1 { padding: $gap-size; }
   }
 
-  aside, main {
+  > article {
     @include flex();
 
-    > section {
+    @media screen and (min-width: $md-breakpoint) { flex-direction: row; }
+
+    aside, main {
       @include flex();
 
-      @media screen and (min-width: $lg-breakpoint) {
-        flex-direction: row;
-      }
-
-      .outer-card-container {
+      > section {
         @include flex();
 
-        color: $color-dark;
-        padding: $gap-size;
-        scroll-margin-top: pxtoem(10);
+        @media screen and (min-width: $lg-breakpoint) {
+          flex-direction: row;
+        }
 
-        .inner-card-container {
+        .outer-card-container {
           @include flex();
 
-          border: pxtoem(2) dashed $color-dark;
+          color: $color-dark;
+          padding: $gap-size;
+          scroll-margin-top: pxtoem(10);
 
-          .card {
+          .inner-card-container {
             @include flex();
 
-            background: no-repeat center var(--background-url);
-            background-size: cover;
-            color: $color-dark;
+            border: pxtoem(2) dashed $color-dark;
 
-            img {
-              // max-width: 300px;
-              z-index: 1;
+            .card {
+              @include flex();
+
+              background: no-repeat center var(--background-url);
+              background-size: cover;
+              color: $color-dark;
+
+              img {
+                z-index: 1;
+              }
             }
           }
-        }
 
-        menu {
-          @include flex($direction: row);
+          menu {
+            @include flex($direction: row);
 
-          border: pxtoem(2) solid $color-dark;
-          height: pxtoem(42);
+            border: pxtoem(2) solid $color-dark;
+            height: pxtoem(42);
 
-          &:not(:first-child) { border-top: none; }
-          &:first-child { border-bottom: none; }
+            &:not(:first-child) { border-top: none; }
+            &:first-child { border-bottom: none; }
 
-          li {
-            @include flex(1);
+            li {
+              @include flex(1);
 
-            list-style: none;
+              list-style: none;
 
-            button {
-              height: 100vh;
-              z-index: 1;
+              button {
+                height: 100vh;
+                z-index: 1;
 
-              &:disabled { display: none; }
+                &:disabled { display: none; }
+              }
             }
           }
-        }
 
-        [data-before-key] {
-          position: relative;
+          [data-before-key] {
+            position: relative;
 
-          &::before {
-            left: 50%;
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            &::before {
+              left: 50%;
+              position: absolute;
+              top: 50%;
+              transform: translate(-50%, -50%);
 
-            color: rgba($color-dark, .2);
-            content: var(--before-string);
+              color: rgba($color-dark, .2);
+              content: var(--before-string);
+            }
           }
         }
       }
     }
-  }
 
-  aside {
-    background: $color-dark;
+    aside {
+      background: $color-dark;
 
-    @media screen and (min-width: $md-breakpoint) { flex: 1; }
+      @media screen and (min-width: $md-breakpoint) { flex: 1; }
 
-    > section {
+      > section {
 
-      .outer-card-container {
-        color: $color-light;
+        .outer-card-container {
+          color: $color-light;
 
-        @media screen and (min-width: $lg-breakpoint) { flex: 1; }
+          @media screen and (min-width: $lg-breakpoint) { flex: 1; }
 
-        .inner-card-container { border-color: $color-light; }
+          .inner-card-container { border-color: $color-light; }
 
-        menu { border-color: $color-light; }
+          menu { border-color: $color-light; }
 
-        [data-before-key]::before { color: rgba($color-light, .5); }
+          [data-before-key]::before { color: rgba($color-light, .5); }
+        }
       }
     }
-  }
 
-  main {
+    main {
 
-    @media screen and (min-width: $md-breakpoint) { flex: 1; }
-    @media screen and (min-width: $lg-breakpoint) { flex: 3; }
+      @media screen and (min-width: $md-breakpoint) { flex: 1; }
+      @media screen and (min-width: $lg-breakpoint) { flex: 3; }
 
-    > section {
+      > section {
 
-      .outer-card-container {
+        .outer-card-container {
 
-        @media screen and (min-width: $lg-breakpoint) {
-          flex: 0 1 33.33333333333333%;
+          @media screen and (min-width: $lg-breakpoint) {
+            flex: 0 1 33.33333333333333%;
+          }
         }
       }
     }

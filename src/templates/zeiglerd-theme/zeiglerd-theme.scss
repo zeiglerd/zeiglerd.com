@@ -1,10 +1,13 @@
-@import '../../../vendor/zeiglerd/php-engine/src/templates/core/variables';
-@import '../../../vendor/zeiglerd/php-engine/src/templates/core/functions';
-@import '../../../vendor/zeiglerd/php-engine/src/templates/core/mixins';
+@import '../../../vendor/zeiglerd/php-engine/src/templates/{{ENGINE_THEME}}/variables';
+@import './variables';
 
-@import './variables'; // @TODO Somehow inject these into core template to override engine variables.
+@import '../../../vendor/zeiglerd/php-engine/src/templates/{{ENGINE_THEME}}/functions';
 @import './functions';
+
+@import '../../../vendor/zeiglerd/php-engine/src/templates/{{ENGINE_THEME}}/mixins';
 @import './mixins';
+
 @import './reset';
 
 @import './views/geordie/geordie';
+@import './views/post/resume';

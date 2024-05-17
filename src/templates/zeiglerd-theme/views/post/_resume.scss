@@ -1,0 +1,30 @@
+[data-page=post-resume] {
+  @include flex(1);
+
+  align-self: center;
+  max-width: $max-width-fluid;
+  width: 100%;
+
+  > hgroup {
+
+    h1 { padding: $gap-size; }
+  }
+
+  > section {
+
+  }
+
+  > aside {
+
+    > section {
+
+    }
+  }
+
+  > main {
+
+    > section {
+
+    }
+  }
+}
