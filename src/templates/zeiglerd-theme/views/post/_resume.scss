@@ -1,30 +1,151 @@
 [data-page=post-resume] {
-  @include flex(1);
 
-  align-self: center;
-  max-width: $max-width-fluid;
-  width: 100%;
+  @at-root body:has(&) { // @NOTE Overrides body styles.
+    color: $color-secondary;
 
-  > hgroup {
+    > header {
+      @include noPrint();
+    }
 
-    h1 { padding: $gap-size; }
+    > footer {
+      @include noPrint();
+    }
+
+    @media print {
+      font-size: pxtorem(10);
+    }
+  }
+
+  hgroup {
+    color: $color-dark;
+    padding: calc(#{$gap-size} / 2) 0;
+
+    :not(:first-child) {
+      padding: calc(#{$gap-size} / 6) 0;
+    }
+
+    h1 {
+      color: $color-primary;
+      font-size: pxtorem(28);
+    }
+
+    h2 {
+      color: $color-primary;
+      font-size: pxtorem(20);
+    }
+
+    h3 {
+      color: $color-primary;
+      font-size: pxtorem(18);
+    }
   }
 
   > section {
+    border-top: $one-px solid $color-secondary;
 
-  }
+    &:first-child { // @NOTE Name
+      padding: $gap-size 0;
+    }
 
-  > aside {
+    &:nth-child(2) { // @NOTE Profile
+      padding: $gap-size 0;
 
-    > section {
+      > section {
+        padding: $gap-size 0;
+      }
+    }
 
+    &:nth-child(3) { // @NOTE Aside and main
+
+      aside {
+        border-right: $one-px solid $color-secondary;
+
+        > section:not(:first-child) {
+
+          hgroup:not(:has(h3)) {
+            border-top: $one-px solid $color-secondary;
+          }
+        }
+
+        > section {
+
+          hgroup:not(:has(h3)) {
+            border-bottom: $one-px solid $color-secondary;
+          }
+
+          &:not(:nth-child(-n + 2)) { // Not contact or education
+
+            > section {
+
+              ul {
+                li { margin-left: pxtoem(17); } // @NOTE Keep list bullets inside flexbox.
+              }
+            }
+          }
+
+          > section {
+            padding: calc(#{$gap-size} / 2);
+
+            p {}
+
+            ul {
+              padding: calc(#{$gap-size} / 2) 0;
+
+              li {
+                padding: calc(#{$gap-size} / 2) 0;
+              }
+            }
+          }
+        }
+      }
+
+      main {
+
+        hgroup:not(:has(h3)) {
+          border-bottom: $one-px solid $color-secondary;
+        }
+
+        > article:not(:first-child) {
+
+          hgroup:not(:has(h3)) {
+            border-top: $one-px solid $color-secondary;
+          }
+        }
+
+        > article {
+          padding: $gap-size;
+
+          > section {
+            padding: calc(#{$gap-size} / 2) 0;
+
+            ul {
+              padding-left: calc(#{$gap-size} * 3);
+
+              li {
+                margin-left: pxtoem(17); // @NOTE Keep list bullets inside flexbox.
+                padding: calc(#{$gap-size} / 2) 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &:nth-child(4) { // @NOTE QR code
+      padding: calc(#{$gap-size} * 2) 0;
+
+      > section {
+
+        img {
+          max-width: pxtoem(160);
+          margin: 0 auto;
+        }
+      }
+    }
+
+    &:nth-child(5) { // @NOTE Revision
+      padding: calc(#{$gap-size} * 2) 0;
     }
   }
 
-  > main {
-
-    > section {
-
-    }
-  }
 }
