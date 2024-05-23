@@ -5,14 +5,22 @@
 
     > header {
       @include noPrint();
+      display: none;
     }
 
     > footer {
       @include noPrint();
+      display: none;
     }
 
     @media print {
       font-size: pxtorem(10);
+
+      @at-root {
+        @page {
+          margin: $gap-size;
+        }
+      }
     }
   }
 
@@ -135,10 +143,15 @@
       padding: calc(#{$gap-size} * 2) 0;
 
       > section {
+        padding: $gap-size 0;
 
         img {
           max-width: pxtoem(160);
           margin: 0 auto;
+        }
+
+        p {
+          text-align: center;
         }
       }
     }
