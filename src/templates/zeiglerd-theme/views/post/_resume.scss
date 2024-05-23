@@ -5,12 +5,10 @@
 
     > header {
       @include noPrint();
-      display: none;
     }
 
     > footer {
       @include noPrint();
-      display: none;
     }
 
     @media print {
@@ -18,7 +16,8 @@
 
       @at-root {
         @page {
-          margin: $gap-size;
+          margin-left: $gap-size;
+          margin-right: $gap-size;
         }
       }
     }
@@ -121,7 +120,7 @@
         }
 
         > article {
-          padding: $gap-size;
+          padding: calc(#{$gap-size} / 2);
 
           > section {
             padding: calc(#{$gap-size} / 2) 0;
