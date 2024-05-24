@@ -84,8 +84,11 @@
 
             > section {
 
-              ul {
-                li { margin-left: pxtoem(17); } // @NOTE Keep list bullets inside flexbox.
+              > ul {
+
+                li {
+                  margin-left: calc(#{$gap-size} * 2); // @NOTE Keep list bullets inside flexbox.
+                }
               }
             }
           }
@@ -93,12 +96,13 @@
           > section {
             padding: calc(#{$gap-size} / 2);
 
-            p {}
-
-            ul {
+            p {
               padding: calc(#{$gap-size} / 2) 0;
+            }
 
-              li {
+            > ul {
+
+              li:not(:has(ul)) {
                 padding: calc(#{$gap-size} / 2) 0;
               }
             }
@@ -125,12 +129,22 @@
           > section {
             padding: calc(#{$gap-size} / 2) 0;
 
-            ul {
-              padding-left: calc(#{$gap-size} * 3);
+            p {
+              padding: calc(#{$gap-size} / 2) 0;
+            }
+
+            > ul {
 
               li {
-                margin-left: pxtoem(17); // @NOTE Keep list bullets inside flexbox.
-                padding: calc(#{$gap-size} / 2) 0;
+                margin-left: calc(#{$gap-size} * 2); // @NOTE Keep list bullets inside flexbox.
+
+                &:not(:has(ul)) {
+                  padding: calc(#{$gap-size} / 2) 0;
+                }
+              }
+
+              > li {
+                margin-left: calc(#{$gap-size} * 4); // @NOTE Keep list bullets inside flexbox.
               }
             }
           }
