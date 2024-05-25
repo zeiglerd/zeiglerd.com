@@ -113,8 +113,13 @@
 
       main {
 
-        hgroup:not(:has(h3)) {
-          border-bottom: $one-px solid $color-secondary;
+        > hgroup {
+          border: solid $color-secondary;
+          border-width: $one-px 0;
+
+          @media print, screen and (min-width: $md-breakpoint) {
+            border-top: 0;
+          }
         }
 
         > article:not(:first-child) {
@@ -162,10 +167,6 @@
         img {
           max-width: pxtoem(160);
           margin: 0 auto;
-        }
-
-        p {
-          text-align: center;
         }
       }
     }
