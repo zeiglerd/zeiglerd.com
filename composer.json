@@ -21,8 +21,8 @@
       "cd ./vendor/zeiglerd/php-engine && npx grunt dev --env=qa"
     ],
     "grunt": "cd ./vendor/zeiglerd/php-engine && npx grunt",
-    "post-install-cmd": "cd ./vendor/zeiglerd/php-engine && npm i",
-    "post-update-cmd": "cd ./vendor/zeiglerd/php-engine && npm i",
+    "post-install-cmd": "cd ./vendor/zeiglerd/php-engine && composer install",
+    "post-update-cmd": "cd ./vendor/zeiglerd/php-engine && composer update",
     "test": "./vendor/bin/phpunit tests"
   },
   "autoload": {

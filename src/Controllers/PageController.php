@@ -2,7 +2,7 @@
 
 namespace ZeiglerD\ZeiglerD\Controllers;
 
-final class PageController extends \ZeiglerD\PhpEngine\Controllers\PageController
+final class PageController extends \ZeiglerD\PhpEngine\Controller
 {
   public function resume($Router, $Template) {
   }
