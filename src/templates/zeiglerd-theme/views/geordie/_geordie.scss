@@ -28,21 +28,21 @@
         .outer-card-container {
           @include flex();
 
-          color: $color-dark;
+          color: $color-dark-primary;
           padding: $gap-size;
           scroll-margin-top: pxtoem(10);
 
           .inner-card-container {
             @include flex();
 
-            border: pxtoem(2) dashed $color-dark;
+            border: pxtoem(2) dashed $color-dark-primary;
 
             .card {
               @include flex();
 
               background: no-repeat center var(--background-url);
               background-size: cover;
-              color: $color-dark;
+              color: $color-dark-primary;
 
               img {
                 z-index: 1;
@@ -50,26 +50,36 @@
             }
           }
 
-          menu {
-            @include flex($direction: row);
+          .action-container {
+            @include flex($direction: column);
 
-            border: pxtoem(2) solid $color-dark;
-            height: pxtoem(42);
+            border: pxtoem(2) solid $color-dark-primary;
 
-            &:not(:first-child) { border-top: none; }
-            &:first-child { border-bottom: none; }
+            menu {
+              @include flex($direction: row);
 
-            li {
-              @include flex(1);
+              // border: pxtoem(2) solid $color-dark-primary;
+              height: pxtoem(42);
 
-              list-style: none;
 
-              button {
-                height: 100vh;
-                z-index: 1;
+              li {
+                @include flex(1);
 
-                &:disabled { display: none; }
+                list-style: none;
+
+                button {
+                  height: 100vh;
+                  z-index: 1;
+
+                  &:disabled { display: none; }
+                }
               }
+            }
+
+            p {
+              // border: pxtoem(2) solid $color-dark-primary;
+              // border-width: 0 pxtoem(2);
+              text-align: center;
             }
           }
 
@@ -79,34 +89,42 @@
             &::before {
               left: 50%;
               position: absolute;
+              text-align: center;
               top: 50%;
               transform: translate(-50%, -50%);
+              width: 90%;
 
-              color: rgba($color-dark, .2);
+              color: rgba($color-dark-primary, .2);
               content: var(--before-string);
             }
           }
         }
+
       }
     }
 
     aside {
-      background: $color-dark;
+      background: $color-dark-primary;
 
       @media screen and (min-width: $md-breakpoint) { flex: 1; }
 
       > section {
 
         .outer-card-container {
-          color: $color-light;
+          color: $color-light-primary;
 
           @media screen and (min-width: $lg-breakpoint) { flex: 1; }
 
-          .inner-card-container { border-color: $color-light; }
+          .inner-card-container { border-color: $color-light-primary; }
 
-          menu { border-color: $color-light; }
+          .action-container {
+            border-color: $color-light-primary;
+            // border-top: none;
+            &:first-of-type { border-bottom: none; }
+            &:last-of-type { border-top: none; }
+          }
 
-          [data-before-key]::before { color: rgba($color-light, .5); }
+          [data-before-key]::before { color: rgba($color-light-primary, .5); }
         }
       }
     }
@@ -122,6 +140,14 @@
 
           @media screen and (min-width: $lg-breakpoint) {
             flex: 0 1 33.33333333333333%;
+          }
+
+          .action-container {
+            // border-bottom: none;
+
+            // &:not(:first-child) { border-top: none; }
+            &:first-of-type { border-bottom: none; }
+            &:last-of-type { border-top: none; }
           }
         }
       }
