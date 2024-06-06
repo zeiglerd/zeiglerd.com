@@ -64,7 +64,7 @@ geordie.expandLocale = (locale, overrides = []) => {
   if (locale && locale.includes('{{')) {
     const localeKey = locale.substring(locale.indexOf('{{') + 2, locale.indexOf('}}'))
     return geordie.expandLocale(
-      locale.replace(`{{${localeKey}}}`, override ?? geordie.getLocale(localeKey)),
+      locale.replaceAll(`{{${localeKey}}}`, override ?? geordie.getLocale(localeKey)),
       overrides
     )
   }
