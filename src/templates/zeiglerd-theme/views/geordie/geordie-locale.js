@@ -54,14 +54,16 @@ geordie.localeMap = {
   shuffle_deck_prompt: 'Click \'{{shuffle_deck}}\' to continue!',
   finish_turn_prompt: 'Click \'{{finish_turn}}\' to pass to next player!',
   red_or_black_prompt: 'Will the next card be <span class="red">{{red}}</span> or <span class="black">{{black}}</span>?',
-  higher_or_lower_prompt: 'Will the next card be <span class="higher">{{higher}}</span> or <span class="lower">{{lower}}</span><br>than a \\{\\{redOrBlackCard.card.value\\}\\}?',
-  inside_or_outside_prompt: 'Will the next card be <span class="inside">{{inside}}</span> or <span class="outside">{{outside}}</span><br>a \\{\\{redOrBlackCard.card.value\\}\\} and \\{\\{higher_or_lower_prompt.card.value\\}\\}?',
+  higher_or_lower_prompt: `Will the next card be <span class="higher">{{higher}}</span> or <span class="lower">{{lower}}</span>
+      <br>than a \\{\\{redOrBlackCard.card.value\\}\\}?`,
+  inside_or_outside_prompt: `Will the next card be <span class="inside">{{inside}}</span> or <span class="outside">{{outside}}</span>
+      <br>of a \\{\\{redOrBlackCard.card.value\\}\\} and \\{\\{higher_or_lower_prompt.card.value\\}\\}?`,
 },
 geordie.getLocaleKey = (substr) => typeof substr === 'string' ? substr.substring(2, substr.length - 2) : substr
 geordie.getLocale = (localeKey) => geordie.expandLocale(geordie.localeMap[localeKey]) ?? localeKey
 geordie.expandLocale = (locale, overrides = []) => {
   const override = overrides.shift()
-  if (locale && locale.includes('{{')) {
+  if (locale && locale.includes('{{') && locale.includes('}}')) {
     const localeKey = locale.substring(locale.indexOf('{{') + 2, locale.indexOf('}}'))
     return geordie.expandLocale(
       locale.replaceAll(`{{${localeKey}}}`, override ?? geordie.getLocale(localeKey)),

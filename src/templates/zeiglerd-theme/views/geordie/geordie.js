@@ -48,8 +48,6 @@ $(() => {
         })
       })
 
-      // console.log(deck.state)
-
       deck.state = shuffle ? shuffleArray(deck.state) : deck.state
     },
     render: () => {
@@ -185,8 +183,10 @@ $(() => {
       $selector.prop('disabled', false)
 
       const $p = $selector.closest('.action-container').find('p')
-      $p.show()
-      $p.html(window.geordie.expandLocale($p.html(), overrides))
+      const html = $p.data('orig') ?? $p.html()
+      $p.data('orig', html)
+        .html(window.geordie.expandLocale(html, overrides))
+        .show()
 
       $(scrollIntoView)[0].scrollIntoView()
     } else {
