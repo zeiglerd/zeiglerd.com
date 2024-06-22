@@ -35,8 +35,9 @@ $(() => {
         window.geordie.localeMap.cards.forEach((card) => {
           deck.state.push({
             card: {
-              value: card.value,
-              key: window.geordie.getLocaleKey(card.key),
+              displayValue: card.displayValue,
+              numericValue: card.numericValue,
+              imageKey: window.geordie.getLocaleKey(card.imageKey),
             },
             suit: {
               colorKey: window.geordie.getLocaleKey(suit.colorKey),
@@ -64,7 +65,7 @@ $(() => {
     render: () => {
       const topCard = getTopCard(discard)
       const imgSrc = topCard
-        ? `${cardPath}/fronts/${topCard.suit.suitKey}_${topCard.card.key}.svg`
+        ? `${cardPath}/fronts/${topCard.suit.suitKey}_${topCard.card.imageKey}.svg`
         : `${cardPath}/other/blank_card_no_fill.svg`
       $discardCard.find('img').attr('src', imgSrc)
     }
@@ -75,7 +76,7 @@ $(() => {
     render: () => {
       const topCard = getTopCard(ongoing)
       const imgSrc = topCard
-        ? `${cardPath}/fronts/${topCard.suit.suitKey}_${topCard.card.key}.svg`
+        ? `${cardPath}/fronts/${topCard.suit.suitKey}_${topCard.card.imageKey}.svg`
         : `${cardPath}/other/blank_card_no_fill.svg`
       $ongoingCard.find('img').attr('src', imgSrc)
     }
@@ -88,7 +89,7 @@ $(() => {
       const imgSrc = topCard
         ? (
           lastAction === 'higherOrLower'
-            ? `${cardPath}/fronts/${topCard.suit.suitKey}_${topCard.card.key}.svg`
+            ? `${cardPath}/fronts/${topCard.suit.suitKey}_${topCard.card.imageKey}.svg`
             : `${cardPath}/backs/astronaut.svg`
         )
         : `${cardPath}/other/blank_card_no_fill.svg`
@@ -103,7 +104,7 @@ $(() => {
       const imgSrc = topCard
         ? (
           lastAction === 'insideOrOutside'
-            ? `${cardPath}/fronts/${topCard.suit.suitKey}_${topCard.card.key}.svg`
+            ? `${cardPath}/fronts/${topCard.suit.suitKey}_${topCard.card.imageKey}.svg`
             : `${cardPath}/backs/astronaut.svg`
         )
         : `${cardPath}/other/blank_card_no_fill.svg`
@@ -118,7 +119,7 @@ $(() => {
       const imgSrc = topCard
         ? (
           lastAction === 'ongoing'
-            ? `${cardPath}/fronts/${topCard.suit.suitKey}_${topCard.card.key}.svg`
+            ? `${cardPath}/fronts/${topCard.suit.suitKey}_${topCard.card.imageKey}.svg`
             : `${cardPath}/backs/astronaut.svg`
         )
         : `${cardPath}/other/blank_card_no_fill.svg`
@@ -259,7 +260,7 @@ $(() => {
           higherOrLower.state.push(takeCard())
           higherOrLower.render()
 
-          return toggleButtons(['higher', 'lower', 'same_x1'], '#higher-or-lower', [redOrBlackCard.card.value])
+          return toggleButtons(['higher', 'lower', 'same_x1'], '#higher-or-lower', [redOrBlackCard.card.displayValue])
         }
         return nextAction('redOrBlack')
 
@@ -273,15 +274,15 @@ $(() => {
           if (DEBUG > 1 || (
             (
               action === 'higher' && (
-                higherOrLowerCard.card.value > redOrBlackCard.card.value
+                higherOrLowerCard.card.numericValue > redOrBlackCard.card.numericValue
               )
             ) || (
               action === 'lower' && (
-                higherOrLowerCard.card.value < redOrBlackCard.card.value
+                higherOrLowerCard.card.numericValue < redOrBlackCard.card.numericValue
               )
             ) || (
               action === 'same_x1' && (
-                higherOrLowerCard.card.value === redOrBlackCard.card.value
+                higherOrLowerCard.card.numericValue === redOrBlackCard.card.numericValue
               )
             )
           )) {
@@ -300,7 +301,7 @@ $(() => {
           insideOrOutside.state.push(takeCard())
           insideOrOutside.render()
 
-          return toggleButtons(['inside', 'outside', 'same_x2'], '#inside-or-outside', [redOrBlackCard.card.value, higherOrLowerCard.card.value])
+          return toggleButtons(['inside', 'outside', 'same_x2'], '#inside-or-outside', [redOrBlackCard.card.displayValue, higherOrLowerCard.card.displayValue])
         }
         return nextAction('redOrBlack')
 
@@ -312,24 +313,24 @@ $(() => {
           higherOrLowerCard = higherOrLower.state[higherOrLower.state.length - 1]
           insideOrOutsideCard = insideOrOutside.state[insideOrOutside.state.length - 1]
 
-          const higherCard = redOrBlackCard.card.value > higherOrLowerCard.card.value ? redOrBlackCard : higherOrLowerCard
-          const lowerCard = redOrBlackCard.card.value > higherOrLowerCard.card.value ? higherOrLowerCard : redOrBlackCard
+          const higherCard = redOrBlackCard.card.numericValue > higherOrLowerCard.card.numericValue ? redOrBlackCard : higherOrLowerCard
+          const lowerCard = redOrBlackCard.card.numericValue > higherOrLowerCard.card.numericValue ? higherOrLowerCard : redOrBlackCard
 
           if (DEBUG > 1 || (
             (
               action === 'inside' && (
-                insideOrOutsideCard.card.value > lowerCard.card.value
-                && insideOrOutsideCard.card.value < higherCard.card.value
+                insideOrOutsideCard.card.numericValue > lowerCard.card.numericValue
+                && insideOrOutsideCard.card.numericValue < higherCard.card.numericValue
               )
             ) || (
               action === 'outside' && (
-                insideOrOutsideCard.card.value < lowerCard.card.value
-                || insideOrOutsideCard.card.value > higherCard.card.value
+                insideOrOutsideCard.card.numericValue < lowerCard.card.numericValue
+                || insideOrOutsideCard.card.numericValue > higherCard.card.numericValue
               )
             ) || (
               action === 'same_x2' && (
-                insideOrOutsideCard.card.value === lowerCard.card.value
-                || insideOrOutsideCard.card.value === higherCard.card.value
+                insideOrOutsideCard.card.numericValue === lowerCard.card.numericValue
+                || insideOrOutsideCard.card.numericValue === higherCard.card.numericValue
               )
             )
           )) {

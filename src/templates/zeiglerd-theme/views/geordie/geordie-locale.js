@@ -4,19 +4,19 @@ const geordie = {
 
 geordie.localeMap = {
   cards: [
-    { value: 2, key: 2 },
-    { value: 3, key: 3 },
-    { value: 4, key: 4 },
-    { value: 5, key: 5 },
-    { value: 6, key: 6 },
-    { value: 7, key: 7 },
-    { value: 8, key: 8 },
-    { value: 9, key: 9 },
-    { value: 10, key: 10 },
-    { value: 11, key: '{{jack}}' },
-    { value: 12, key: '{{queen}}' },
-    { value: 13, key: '{{king}}' },
-    { value: 14, key: '{{ace}}' }
+    { displayValue: '2', numericValue: 2, imageKey: 2 },
+    { displayValue: '3', numericValue: 3, imageKey: 3 },
+    { displayValue: '4', numericValue: 4, imageKey: 4 },
+    { displayValue: '5', numericValue: 5, imageKey: 5 },
+    { displayValue: '6', numericValue: 6, imageKey: 6 },
+    { displayValue: '7', numericValue: 7, imageKey: 7 },
+    { displayValue: '8', numericValue: 8, imageKey: 8 },
+    { displayValue: '9', numericValue: 9, imageKey: 9 },
+    { displayValue: '10', numericValue: 10, imageKey: 10 },
+    { displayValue: '{{jack}}', numericValue: 11, imageKey: '{{jack}}' },
+    { displayValue: '{{queen}}', numericValue: 12, imageKey: '{{queen}}' },
+    { displayValue: '{{king}}', numericValue: 13, imageKey: '{{king}}' },
+    { displayValue: '{{ace}}', numericValue: 14, imageKey: '{{ace}}' }
   ],
   suits: [
     { colorKey: '{{black}}', suitKey: '{{clubs}}' },
@@ -54,10 +54,12 @@ geordie.localeMap = {
   shuffle_deck_prompt: 'Click \'{{shuffle_deck}}\' to continue!',
   finish_turn_prompt: 'Click \'{{finish_turn}}\' to pass to next player!',
   red_or_black_prompt: 'Will the next card be <span class="red">{{red}}</span> or <span class="black">{{black}}</span>?',
-  higher_or_lower_prompt: `Will the next card be <span class="higher">{{higher}}</span> or <span class="lower">{{lower}}</span>
-      <br>than a \\{\\{redOrBlackCard.card.value\\}\\}?`,
-  inside_or_outside_prompt: `Will the next card be <span class="inside">{{inside}}</span> or <span class="outside">{{outside}}</span>
-      <br>of a \\{\\{redOrBlackCard.card.value\\}\\} and \\{\\{higher_or_lower_prompt.card.value\\}\\}?`,
+  higher_or_lower_prompt: `Will the next card be
+      <br><span class="higher">{{higher}}</span> or <span class="lower">{{lower}}</span>
+      than a \\{\\{redOrBlackCard.card.value\\}\\}?`,
+  inside_or_outside_prompt: `Will the next card be
+      <br><span class="inside">{{inside}}</span> or <span class="outside">{{outside}}</span>
+      of a \\{\\{redOrBlackCard.card.value\\}\\} and \\{\\{higher_or_lower_prompt.card.value\\}\\}?`,
 },
 geordie.getLocaleKey = (substr) => typeof substr === 'string' ? substr.substring(2, substr.length - 2) : substr
 geordie.getLocale = (localeKey) => geordie.expandLocale(geordie.localeMap[localeKey]) ?? localeKey
