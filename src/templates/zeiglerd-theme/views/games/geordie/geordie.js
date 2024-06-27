@@ -1,7 +1,7 @@
 const DEBUG = 1
 const CLICK_DELAY = 350
 
-const cardPath = '/images/templates/zeiglerd-theme/views/geordie'
+const cardPath = '/images/templates/zeiglerd-theme/views/games/geordie'
 
 $(() => {
   const $deckCard = $('#deck').find('.card')

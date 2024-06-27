@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zeiglerd/php-engine.git",
-                "reference": "9f576c29a3116e0ee4040f23a91f44b7607e73cf"
+                "reference": "b15638f5c500601b06032f917263633c7f9a3d15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/9f576c29a3116e0ee4040f23a91f44b7607e73cf",
-                "reference": "9f576c29a3116e0ee4040f23a91f44b7607e73cf",
+                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/b15638f5c500601b06032f917263633c7f9a3d15",
+                "reference": "b15638f5c500601b06032f917263633c7f9a3d15",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +151,7 @@
                 "source": "https://github.com/zeiglerd/php-engine/tree/main",
                 "issues": "https://github.com/zeiglerd/php-engine/issues"
             },
-            "time": "2024-06-27T04:39:12+00:00"
+            "time": "2024-06-27T08:55:42+00:00"
         }
     ],
     "packages-dev": [],

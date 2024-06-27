@@ -60,20 +60,11 @@ geordie.localeMap = {
   inside_or_outside_prompt: `Will the next card be
       <br><span class="inside">{{inside}}</span> or <span class="outside">{{outside}}</span>
       of a \\{\\{redOrBlackCard.card.value\\}\\} and \\{\\{higher_or_lower_prompt.card.value\\}\\}?`,
-},
-geordie.getLocaleKey = (substr) => typeof substr === 'string' ? substr.substring(2, substr.length - 2) : substr
-geordie.getLocale = (localeKey) => geordie.expandLocale(geordie.localeMap[localeKey]) ?? localeKey
-geordie.expandLocale = (locale, overrides = []) => {
-  const override = overrides.shift()
-  if (locale && locale.includes('{{') && locale.includes('}}')) {
-    const localeKey = locale.substring(locale.indexOf('{{') + 2, locale.indexOf('}}'))
-    return geordie.expandLocale(
-      locale.replaceAll(`{{${localeKey}}}`, override ?? geordie.getLocale(localeKey)),
-      overrides
-    )
-  }
-  return locale.replaceAll('\\{\\{', '{{').replaceAll('\\}\\}', '}}')
 }
+
+geordie.getLocaleKey = (substr) => window.i18n.getLocaleKey(substr)
+geordie.getLocale = (localeKey) => window.i18n.getLocale('geordie', localeKey)
+geordie.expandLocale = (locale, overrides = []) => window.i18n.expandLocale('geordie', locale, overrides)
 
 window.geordie = geordie
 
@@ -86,8 +77,7 @@ $(() => {
 
   $('[data-before-key]').each((index, element) => {
     const key = $(element).data('before-key')
-    const beforeString = geordie.getLocale(key)
-    $(element).attr('style', `--before-string: '${beforeString}'`)
+    $(element).attr('style', `--before-string: '${geordie.getLocale(key)}'`)
   })
 
 })
