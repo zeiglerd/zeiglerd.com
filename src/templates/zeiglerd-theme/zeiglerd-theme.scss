@@ -1,8 +1,8 @@
-@import '../../../vendor/zeiglerd/php-engine/src/templates/{{ENGINE_THEME}}/mixins';
-@import './mixins';
-
 @import '../../../vendor/zeiglerd/php-engine/src/templates/{{ENGINE_THEME}}/variables';
 @import './variables';
+
+@import '../../../vendor/zeiglerd/php-engine/src/templates/{{ENGINE_THEME}}/mixins';
+@import './mixins';
 
 @import '../../../vendor/zeiglerd/php-engine/src/templates/{{ENGINE_THEME}}/functions';
 @import './functions';
@@ -10,5 +10,7 @@
 @import './reset';
 
 @import './partials/header/header';
+
+@import './views/games/cheddar/cheddar';
 @import './views/games/geordie/geordie';
 @import './views/page/resume';
