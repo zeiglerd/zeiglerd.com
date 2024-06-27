@@ -1,4 +1,4 @@
-[data-page=post-resume] {
+[data-page=page-resume] {
 
   @at-root body:has(&) { // @NOTE Overrides body styles.
     color: $color-secondary;
