@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zeiglerd/php-engine.git",
-                "reference": "b15638f5c500601b06032f917263633c7f9a3d15"
+                "reference": "c652eae86e77f7807e9890e0c22c988766c66670"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/b15638f5c500601b06032f917263633c7f9a3d15",
-                "reference": "b15638f5c500601b06032f917263633c7f9a3d15",
+                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/c652eae86e77f7807e9890e0c22c988766c66670",
+                "reference": "c652eae86e77f7807e9890e0c22c988766c66670",
                 "shasum": ""
             },
             "require": {
@@ -132,11 +132,23 @@
                 }
             },
             "scripts": {
+                "store-engine-git": [
+                    "mv ./.git ~/AppData/Local/Temp"
+                ],
+                "restore-engine-git": [
+                    "mv ~/AppData/Local/Temp/.git ./ && git stash"
+                ],
+                "pre-install-cmd": [
+                    "composer store-engine-git"
+                ],
+                "pre-update-cmd": [
+                    "composer store-engine-git"
+                ],
                 "post-install-cmd": [
-                    "npm i"
+                    "npm i && composer restore-engine-git"
                 ],
                 "post-update-cmd": [
-                    "npm i"
+                    "npm i && composer restore-engine-git"
                 ],
                 "test": [
                     "./vendor/bin/phpunit tests"
@@ -151,7 +163,7 @@
                 "source": "https://github.com/zeiglerd/php-engine/tree/main",
                 "issues": "https://github.com/zeiglerd/php-engine/issues"
             },
-            "time": "2024-06-27T08:55:42+00:00"
+            "time": "2024-06-27T11:04:58+00:00"
         }
     ],
     "packages-dev": [],
