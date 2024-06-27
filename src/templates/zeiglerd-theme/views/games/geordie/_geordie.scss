@@ -1,153 +1,155 @@
-[data-page=geordie] {
-  @include flex(1);
+[data-page~=geordie] {
 
-  align-self: center;
-  max-width: $max-width-fluid;
-  width: 100%;
+  > section {
 
-  > hgroup {
+    align-self: center;
+    max-width: $max-width-fluid;
+    width: 100%;
 
-    h1 { padding: $gap-size; }
-  }
+    > hgroup {
 
-  > article {
-    @include flex();
+      h1 { padding: $gap-size; }
+    }
 
-    @media screen and (min-width: $md-breakpoint) { flex-direction: row; }
-
-    aside, main {
+    > article {
       @include flex();
 
-      > section {
+      @media screen and (min-width: $md-breakpoint) { flex-direction: row; }
+
+      aside, main {
         @include flex();
 
-        @media screen and (min-width: $lg-breakpoint) {
-          flex-direction: row;
-        }
-
-        .outer-card-container {
+        > section {
           @include flex();
 
-          color: $color-dark-primary;
-          padding: $gap-size;
-          scroll-margin-top: pxtoem(10);
-
-          .inner-card-container {
-            @include flex();
-
-            border: pxtoem(2) dashed $color-dark-primary;
-
-            .card {
-              @include flex();
-
-              background: no-repeat center var(--background-url);
-              background-size: cover;
-              color: $color-dark-primary;
-
-              img {
-                z-index: 1;
-              }
-            }
+          @media screen and (min-width: $lg-breakpoint) {
+            flex-direction: row;
           }
 
-          .action-container {
-            @include flex($direction: column);
+          .outer-card-container {
+            @include flex();
 
-            border: pxtoem(2) solid $color-dark-primary;
+            color: $color-dark-primary;
+            padding: $gap-size;
+            scroll-margin-top: pxtoem(10);
 
-            menu {
-              @include flex($direction: row);
+            .inner-card-container {
+              @include flex();
 
-              // border: pxtoem(2) solid $color-dark-primary;
-              height: pxtoem(42);
+              border: pxtoem(2) dashed $color-dark-primary;
 
+              .card {
+                @include flex();
 
-              li {
-                @include flex(1);
+                background: no-repeat center var(--background-url);
+                background-size: cover;
+                color: $color-dark-primary;
 
-                list-style: none;
-
-                button {
-                  height: 100vh;
+                img {
                   z-index: 1;
-
-                  &:disabled { display: none; }
                 }
               }
             }
 
-            p {
-              // border: pxtoem(2) solid $color-dark-primary;
-              // border-width: 0 pxtoem(2);
-              text-align: center;
+            .action-container {
+              @include flex($direction: column);
+
+              border: pxtoem(2) solid $color-dark-primary;
+
+              menu {
+                @include flex($direction: row);
+
+                // border: pxtoem(2) solid $color-dark-primary;
+                height: pxtoem(42);
+
+
+                li {
+                  @include flex(1);
+
+                  list-style: none;
+
+                  button {
+                    height: 100vh;
+                    z-index: 1;
+
+                    &:disabled { display: none; }
+                  }
+                }
+              }
+
+              p {
+                // border: pxtoem(2) solid $color-dark-primary;
+                // border-width: 0 pxtoem(2);
+                text-align: center;
+              }
+            }
+
+            [data-before-key] {
+              position: relative;
+
+              &::before {
+                left: 50%;
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%;
+
+                color: rgba($color-dark-primary, .2);
+                content: var(--before-string);
+              }
             }
           }
 
-          [data-before-key] {
-            position: relative;
+        }
+      }
 
-            &::before {
-              left: 50%;
-              position: absolute;
-              text-align: center;
-              top: 50%;
-              transform: translate(-50%, -50%);
-              width: 90%;
+      aside {
+        background: $color-dark-primary;
 
-              color: rgba($color-dark-primary, .2);
-              content: var(--before-string);
+        @media screen and (min-width: $md-breakpoint) { flex: 1; }
+
+        > section {
+
+          .outer-card-container {
+            color: $color-light-primary;
+
+            @media screen and (min-width: $lg-breakpoint) { flex: 1; }
+
+            .inner-card-container { border-color: $color-light-primary; }
+
+            .action-container {
+              border-color: $color-light-primary;
+              // border-top: none;
+              &:first-of-type { border-bottom: none; }
+              &:last-of-type { border-top: none; }
             }
+
+            [data-before-key]::before { color: rgba($color-light-primary, .5); }
           }
         }
-
       }
-    }
 
-    aside {
-      background: $color-dark-primary;
+      main {
 
-      @media screen and (min-width: $md-breakpoint) { flex: 1; }
+        @media screen and (min-width: $md-breakpoint) { flex: 1; }
+        @media screen and (min-width: $lg-breakpoint) { flex: 3; }
 
-      > section {
+        > section {
 
-        .outer-card-container {
-          color: $color-light-primary;
+          .outer-card-container {
 
-          @media screen and (min-width: $lg-breakpoint) { flex: 1; }
+            @media screen and (min-width: $lg-breakpoint) {
+              flex: 0 1 33.33333333333333%;
+            }
 
-          .inner-card-container { border-color: $color-light-primary; }
+            .action-container {
+              // border-bottom: none;
 
-          .action-container {
-            border-color: $color-light-primary;
-            // border-top: none;
-            &:first-of-type { border-bottom: none; }
-            &:last-of-type { border-top: none; }
-          }
-
-          [data-before-key]::before { color: rgba($color-light-primary, .5); }
-        }
-      }
-    }
-
-    main {
-
-      @media screen and (min-width: $md-breakpoint) { flex: 1; }
-      @media screen and (min-width: $lg-breakpoint) { flex: 3; }
-
-      > section {
-
-        .outer-card-container {
-
-          @media screen and (min-width: $lg-breakpoint) {
-            flex: 0 1 33.33333333333333%;
-          }
-
-          .action-container {
-            // border-bottom: none;
-
-            // &:not(:first-child) { border-top: none; }
-            &:first-of-type { border-bottom: none; }
-            &:last-of-type { border-top: none; }
+              // &:not(:first-child) { border-top: none; }
+              &:first-of-type { border-bottom: none; }
+              &:last-of-type { border-top: none; }
+            }
           }
         }
       }

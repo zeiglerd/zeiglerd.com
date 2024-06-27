@@ -1,110 +1,112 @@
 <?php $this->renderPartial('head'); ?>
-<?php $this->renderPartial('header'); ?>
-<section id="content" data-page="geordie">
-  <hgroup>
-    <h1>Geordie</h1>
-  </hgroup>
-  <article>
-    <aside>
-      <section>
-        <article id="deck" class="outer-card-container">
-          <section class="inner-card-container" data-before-key="deck" style="--before-string: '';">
-            <div class="card">
-              <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
-            </div>
-          </section>
-          <section class="action-container">
-            <p data-locale-key="start_game_prompt"></p>
-            <menu data-before-key="actions" style="--before-string: '';">
-              <li><button class="success" data-locale-key="start_game"></button></li>
-            </menu>
-          </section>
-        </article>
-      </section>
+<article class="xxs-col" data-page="geordie">
+  <?php $this->renderPartial('header'); ?>
+  <section class="max-width-fluid xxs-col">
+    <hgroup>
+      <h1>Geordie</h1>
+    </hgroup>
+    <article>
+      <aside>
+        <section>
+          <article id="deck" class="outer-card-container">
+            <section class="inner-card-container" data-before-key="deck" style="--before-string: '';">
+              <div class="card">
+                <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
+              </div>
+            </section>
+            <section class="action-container">
+              <p data-locale-key="start_game_prompt"></p>
+              <menu data-before-key="actions" style="--before-string: '';">
+                <li><button class="success" data-locale-key="start_game"></button></li>
+              </menu>
+            </section>
+          </article>
+        </section>
 
-      <section>
-        <article id="discard" class="outer-card-container">
-          <section class="action-container">
-            <p class="hidden" data-locale-key="shuffle_deck_prompt"></p>
-            <menu data-before-key="actions" style="--before-string: '';">
-              <li><button class="primary" data-locale-key="shuffle_deck" disabled></button></li>
-            </menu>
-          </section>
-          <section class="inner-card-container" data-before-key="discard" style="--before-string: '';">
-            <div class="card">
-              <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
-            </div>
-          </section>
-        </article>
-      </section>
-    </aside>
-    <main>
-      <section>
-        <article id="ongoing" class="outer-card-container">
-          <section class="inner-card-container" data-before-key="ongoing" style="--before-string: '';">
-            <div class="card">
-              <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
-            </div>
-          </section>
-          <section class="action-container">
-            <p class="hidden" data-locale-key="finish_turn_prompt"></p>
-            <menu data-before-key="actions" style="--before-string: '';">
-              <li><button class="primary" data-locale-key="finish_turn" disabled></button></li>
-            </menu>
-          </section>
-        </article>
-      </section>
+        <section>
+          <article id="discard" class="outer-card-container">
+            <section class="action-container">
+              <p class="hidden" data-locale-key="shuffle_deck_prompt"></p>
+              <menu data-before-key="actions" style="--before-string: '';">
+                <li><button class="primary" data-locale-key="shuffle_deck" disabled></button></li>
+              </menu>
+            </section>
+            <section class="inner-card-container" data-before-key="discard" style="--before-string: '';">
+              <div class="card">
+                <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
+              </div>
+            </section>
+          </article>
+        </section>
+      </aside>
+      <main>
+        <section>
+          <article id="ongoing" class="outer-card-container">
+            <section class="inner-card-container" data-before-key="ongoing" style="--before-string: '';">
+              <div class="card">
+                <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
+              </div>
+            </section>
+            <section class="action-container">
+              <p class="hidden" data-locale-key="finish_turn_prompt"></p>
+              <menu data-before-key="actions" style="--before-string: '';">
+                <li><button class="primary" data-locale-key="finish_turn" disabled></button></li>
+              </menu>
+            </section>
+          </article>
+        </section>
 
-      <section>
-        <article id="red-or-black" class="outer-card-container">
-          <section class="action-container">
-            <p class="hidden" data-locale-key="red_or_black_prompt"></p>
-            <menu data-before-key="actions" style="--before-string: '';">
-              <li><button class="danger" data-locale-key="red" disabled></button></li>
-              <li><button class="dark" data-locale-key="black" disabled></button></li>
-            </menu>
-          </section>
-          <section class="inner-card-container" data-before-key="red_or_black" style="--before-string: '';">
-            <div class="card">
-              <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
-            </div>
-          </section>
-        </article>
+        <section>
+          <article id="red-or-black" class="outer-card-container">
+            <section class="action-container">
+              <p class="hidden" data-locale-key="red_or_black_prompt"></p>
+              <menu data-before-key="actions" style="--before-string: '';">
+                <li><button class="danger" data-locale-key="red" disabled></button></li>
+                <li><button class="dark" data-locale-key="black" disabled></button></li>
+              </menu>
+            </section>
+            <section class="inner-card-container" data-before-key="red_or_black" style="--before-string: '';">
+              <div class="card">
+                <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
+              </div>
+            </section>
+          </article>
 
-        <article id="higher-or-lower" class="outer-card-container">
-          <section class="action-container">
-            <p class="hidden" data-locale-key="higher_or_lower_prompt"></p>
-            <menu data-before-key="actions" style="--before-string: '';">
-              <li><button class="success" data-locale-key="higher" disabled></button></li>
-              <li><button class="warning" data-locale-key="lower" disabled></button></li>
-              <li><button class="danger" data-locale-key="same_x1" disabled></button></li>
-            </menu>
-          </section>
-          <section class="inner-card-container" data-before-key="higher_or_lower" style="--before-string: '';">
-            <div class="card">
-              <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
-            </div>
-          </section>
-        </article>
+          <article id="higher-or-lower" class="outer-card-container">
+            <section class="action-container">
+              <p class="hidden" data-locale-key="higher_or_lower_prompt"></p>
+              <menu data-before-key="actions" style="--before-string: '';">
+                <li><button class="success" data-locale-key="higher" disabled></button></li>
+                <li><button class="warning" data-locale-key="lower" disabled></button></li>
+                <li><button class="danger" data-locale-key="same_x1" disabled></button></li>
+              </menu>
+            </section>
+            <section class="inner-card-container" data-before-key="higher_or_lower" style="--before-string: '';">
+              <div class="card">
+                <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
+              </div>
+            </section>
+          </article>
 
-        <article id="inside-or-outside" class="outer-card-container">
-          <section class="action-container">
-            <p class="hidden" data-locale-key="inside_or_outside_prompt"></p>
-            <menu data-before-key="actions" style="--before-string: '';">
-              <li><button class="success" data-locale-key="inside" disabled></button></li>
-              <li><button class="warning" data-locale-key="outside" disabled></button></li>
-              <li><button class="danger" data-locale-key="same_x2" disabled></button></li>
-            </menu>
-          </section>
-          <section class="inner-card-container" data-before-key="inside_or_outside" style="--before-string: '';">
-            <div class="card">
-              <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
-            </div>
-          </section>
-        </article>
-      </section>
-    </main>
-  </article>
-</section>
-<?php $this->renderPartial('footer'); ?>
+          <article id="inside-or-outside" class="outer-card-container">
+            <section class="action-container">
+              <p class="hidden" data-locale-key="inside_or_outside_prompt"></p>
+              <menu data-before-key="actions" style="--before-string: '';">
+                <li><button class="success" data-locale-key="inside" disabled></button></li>
+                <li><button class="warning" data-locale-key="outside" disabled></button></li>
+                <li><button class="danger" data-locale-key="same_x2" disabled></button></li>
+              </menu>
+            </section>
+            <section class="inner-card-container" data-before-key="inside_or_outside" style="--before-string: '';">
+              <div class="card">
+                <img src="/images/templates/zeiglerd-theme/views/games/geordie/other/blank_card_no_fill.svg" alt="blank card" />
+              </div>
+            </section>
+          </article>
+        </section>
+      </main>
+    </article>
+  </section>
+  <?php $this->renderPartial('footer'); ?>
+</article>
 <?php $this->renderPartial('foot'); ?>
