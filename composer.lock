@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zeiglerd/php-engine.git",
-                "reference": "c652eae86e77f7807e9890e0c22c988766c66670"
+                "reference": "d2f6cd5c6336cf1fbb0a86d8c789fb853b785845"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/c652eae86e77f7807e9890e0c22c988766c66670",
-                "reference": "c652eae86e77f7807e9890e0c22c988766c66670",
+                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/d2f6cd5c6336cf1fbb0a86d8c789fb853b785845",
+                "reference": "d2f6cd5c6336cf1fbb0a86d8c789fb853b785845",
                 "shasum": ""
             },
             "require": {
@@ -132,23 +132,44 @@
                 }
             },
             "scripts": {
-                "store-engine-git": [
-                    "mv ./.git ~/AppData/Local/Temp"
+                "build:local": [
+                    "npx grunt build --env=local"
                 ],
-                "restore-engine-git": [
-                    "mv ~/AppData/Local/Temp/.git ./ && git stash"
+                "build:prod": [
+                    "npx grunt build --env=prod"
                 ],
-                "pre-install-cmd": [
-                    "composer store-engine-git"
+                "build:qa": [
+                    "npx grunt build --env=qa"
                 ],
-                "pre-update-cmd": [
-                    "composer store-engine-git"
+                "deploy:prod": [
+                    "npx grunt deploy --env=prod"
+                ],
+                "deploy:qa": [
+                    "npx grunt deploy --env=qa"
+                ],
+                "dev:local": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "npx grunt dev --env=local"
+                ],
+                "dev:prod": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "npx grunt dev --env=prod"
+                ],
+                "dev:qa": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "npx grunt dev --env=qa"
                 ],
                 "post-install-cmd": [
-                    "npm i && composer restore-engine-git"
+                    "npm i"
                 ],
                 "post-update-cmd": [
-                    "npm i && composer restore-engine-git"
+                    "npm i"
+                ],
+                "restore-engine-git": [
+                    "[ -d ~/AppData/Local/Temp/.git ] && (mv ~/AppData/Local/Temp/.git ./ && git restore . && git stash pop && rm ./.keep) || echo >nul"
+                ],
+                "store-engine-git": [
+                    "cd . > ./.keep && git stash -u && mv ./.git ~/AppData/Local/Temp && cd ./../../.."
                 ],
                 "test": [
                     "./vendor/bin/phpunit tests"
@@ -163,7 +184,7 @@
                 "source": "https://github.com/zeiglerd/php-engine/tree/main",
                 "issues": "https://github.com/zeiglerd/php-engine/issues"
             },
-            "time": "2024-06-27T11:04:58+00:00"
+            "time": "2024-06-29T13:57:29+00:00"
         }
     ],
     "packages-dev": [],

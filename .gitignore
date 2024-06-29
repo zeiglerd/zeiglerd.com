@@ -2,3 +2,4 @@ dist/
 vendor/
 .env.*
 !.env.*.example
+node_modules/

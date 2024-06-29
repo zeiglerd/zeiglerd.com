@@ -9,8 +9,10 @@
 
 @import './reset';
 
+// Partials
 @import './partials/header/header';
 
+// Views
 @import './views/games/cheddar/cheddar';
 @import './views/games/geordie/geordie';
 @import './views/page/resume';
