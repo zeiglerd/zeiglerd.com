@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zeiglerd/php-engine.git",
-                "reference": "d2f6cd5c6336cf1fbb0a86d8c789fb853b785845"
+                "reference": "5e5ea53214d292bf75a24192c3c1a45daf8cbb9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/d2f6cd5c6336cf1fbb0a86d8c789fb853b785845",
-                "reference": "d2f6cd5c6336cf1fbb0a86d8c789fb853b785845",
+                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/5e5ea53214d292bf75a24192c3c1a45daf8cbb9c",
+                "reference": "5e5ea53214d292bf75a24192c3c1a45daf8cbb9c",
                 "shasum": ""
             },
             "require": {
@@ -166,10 +166,10 @@
                     "npm i"
                 ],
                 "restore-engine-git": [
-                    "[ -d ~/AppData/Local/Temp/.git ] && (mv ~/AppData/Local/Temp/.git ./ && git restore . && git stash pop && rm ./.keep) || echo >nul"
+                    "[ -d ~/AppData/Local/Temp/.git ] && (mv ~/AppData/Local/Temp/.git ./ && git restore . && git stash pop && rm ./.stash) || echo >nul"
                 ],
                 "store-engine-git": [
-                    "cd . > ./.keep && git stash -u && mv ./.git ~/AppData/Local/Temp && cd ./../../.."
+                    "cd . > ./.stash && git stash -u && mv ./.git ~/AppData/Local/Temp && cd ./../../.."
                 ],
                 "test": [
                     "./vendor/bin/phpunit tests"
@@ -184,7 +184,7 @@
                 "source": "https://github.com/zeiglerd/php-engine/tree/main",
                 "issues": "https://github.com/zeiglerd/php-engine/issues"
             },
-            "time": "2024-06-29T13:57:29+00:00"
+            "time": "2024-06-30T05:21:50+00:00"
         }
     ],
     "packages-dev": [],

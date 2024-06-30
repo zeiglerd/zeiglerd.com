@@ -1,178 +1,175 @@
 [data-page=page-resume] {
 
-  @at-root body:has(&) { // @NOTE Overrides body styles.
-    color: $color-secondary;
+  @media print {
+    font-size: pxtorem(10);
 
-    > header {
-      @include noPrint();
-    }
+    @at-root {
 
-    > footer {
-      @include noPrint();
-    }
-
-    @media print {
-      font-size: pxtorem(10);
-
-      @at-root {
-        @page {
-          margin-left: $gap-size;
-          margin-right: $gap-size;
-        }
+      @page {
+        margin-left: $gap-size;
+        margin-right: $gap-size;
       }
     }
   }
 
-  hgroup {
-    color: $color-dark-primary;
-    padding: calc(#{$gap-size} / 2) 0;
-
-    :not(:first-child) {
-      padding: calc(#{$gap-size} / 6) 0;
-    }
-
-    h1 {
-      color: $color-primary;
-      font-size: pxtorem(28);
-    }
-
-    h2 {
-      color: $color-primary;
-      font-size: pxtorem(20);
-    }
-
-    h3 {
-      color: $color-primary;
-      font-size: pxtorem(18);
-    }
+  > header,
+  > footer {
+    @include noPrint();
   }
 
   > section {
-    border-top: $one-px solid $color-secondary;
 
-    &:first-child { // @NOTE Name
-      padding: $gap-size 0;
-    }
+    hgroup {
+      color: $color-dark-primary;
+      padding: calc(#{$gap-size} / 2) 0;
 
-    &:nth-child(2) { // @NOTE Profile
-      padding: $gap-size 0;
+      :not(:first-child) {
+        padding: calc(#{$gap-size} / 6) 0;
+      }
 
-      > section {
-        padding: $gap-size 0;
+      h1 {
+        color: $color-primary;
+        font-size: pxtorem(28);
+      }
+
+      h2 {
+        color: $color-primary;
+        font-size: pxtorem(20);
+      }
+
+      h3 {
+        color: $color-primary;
+        font-size: pxtorem(18);
       }
     }
 
-    &:nth-child(3) { // @NOTE Aside and main
+    > section {
+      border-top: $one-px solid $color-secondary;
 
-      aside {
-        border-right: $one-px solid $color-secondary;
+      &:first-child { // @NOTE Name
+        padding: $gap-size 0;
+      }
 
-        > section:not(:first-child) {
+      &:nth-child(2) { // @NOTE Profile
+        padding: $gap-size 0;
 
-          hgroup:not(:has(h3)) {
-            border-top: $one-px solid $color-secondary;
+        > section {
+          padding: $gap-size 0;
+        }
+      }
+
+      &:nth-child(3) { // @NOTE Aside and main
+
+        aside {
+          border-right: $one-px solid $color-secondary;
+
+          > section:not(:first-child) {
+
+            hgroup:not(:has(h3)) {
+              border-top: $one-px solid $color-secondary;
+            }
+          }
+
+          > section {
+
+            hgroup:not(:has(h3)) {
+              border-bottom: $one-px solid $color-secondary;
+            }
+
+            &:not(:nth-child(-n + 2)) { // Not contact or education
+
+              > section {
+
+                > ul {
+
+                  li {
+                    margin-left: calc(#{$gap-size} * 2); // @NOTE Keep list bullets inside flexbox.
+                  }
+                }
+              }
+            }
+
+            > section {
+              padding: calc(#{$gap-size} / 2);
+
+              p {
+                padding: calc(#{$gap-size} / 2) 0;
+              }
+
+              > ul,
+              > address > ul {
+
+                li:not(:has(ul)) {
+                  padding: calc(#{$gap-size} / 2) 0;
+                }
+              }
+            }
           }
         }
 
-        > section {
+        main {
 
-          hgroup:not(:has(h3)) {
-            border-bottom: $one-px solid $color-secondary;
+          > hgroup {
+            border: solid $color-secondary;
+            border-width: $one-px 0;
+
+            @media print, screen and (min-width: $md-breakpoint) {
+              border-top: 0;
+            }
           }
 
-          &:not(:nth-child(-n + 2)) { // Not contact or education
+          > article:not(:first-child) {
+
+            hgroup:not(:has(h3)) {
+              border-top: $one-px solid $color-secondary;
+            }
+          }
+
+          > article {
+            padding: calc(#{$gap-size} / 2);
 
             > section {
+              padding: calc(#{$gap-size} / 2) 0;
+
+              p {
+                padding: calc(#{$gap-size} / 2) 0;
+              }
 
               > ul {
 
                 li {
                   margin-left: calc(#{$gap-size} * 2); // @NOTE Keep list bullets inside flexbox.
+
+                  &:not(:has(ul)) {
+                    padding: calc(#{$gap-size} / 2) 0;
+                  }
+                }
+
+                > li {
+                  margin-left: calc(#{$gap-size} * 4); // @NOTE Keep list bullets inside flexbox.
                 }
               }
             }
           }
+        }
+      }
 
-          > section {
-            padding: calc(#{$gap-size} / 2);
+      &:nth-child(4) { // @NOTE QR code
+        padding: calc(#{$gap-size} * 2) 0;
 
-            p {
-              padding: calc(#{$gap-size} / 2) 0;
-            }
+        > section {
+          padding: $gap-size 0;
 
-            > ul,
-            > address > ul {
-
-              li:not(:has(ul)) {
-                padding: calc(#{$gap-size} / 2) 0;
-              }
-            }
+          img {
+            max-width: pxtoem(160);
+            margin: 0 auto;
           }
         }
       }
 
-      main {
-
-        > hgroup {
-          border: solid $color-secondary;
-          border-width: $one-px 0;
-
-          @media print, screen and (min-width: $md-breakpoint) {
-            border-top: 0;
-          }
-        }
-
-        > article:not(:first-child) {
-
-          hgroup:not(:has(h3)) {
-            border-top: $one-px solid $color-secondary;
-          }
-        }
-
-        > article {
-          padding: calc(#{$gap-size} / 2);
-
-          > section {
-            padding: calc(#{$gap-size} / 2) 0;
-
-            p {
-              padding: calc(#{$gap-size} / 2) 0;
-            }
-
-            > ul {
-
-              li {
-                margin-left: calc(#{$gap-size} * 2); // @NOTE Keep list bullets inside flexbox.
-
-                &:not(:has(ul)) {
-                  padding: calc(#{$gap-size} / 2) 0;
-                }
-              }
-
-              > li {
-                margin-left: calc(#{$gap-size} * 4); // @NOTE Keep list bullets inside flexbox.
-              }
-            }
-          }
-        }
+      &:nth-child(5) { // @NOTE Revision
+        padding: calc(#{$gap-size} * 2) 0;
       }
-    }
-
-    &:nth-child(4) { // @NOTE QR code
-      padding: calc(#{$gap-size} * 2) 0;
-
-      > section {
-        padding: $gap-size 0;
-
-        img {
-          max-width: pxtoem(160);
-          margin: 0 auto;
-        }
-      }
-    }
-
-    &:nth-child(5) { // @NOTE Revision
-      padding: calc(#{$gap-size} * 2) 0;
     }
   }
 

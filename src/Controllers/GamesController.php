@@ -2,7 +2,9 @@
 
 namespace ZeiglerD\ZeiglerD\Controllers;
 
-final class GamesController extends \ZeiglerD\PhpEngine\Controller
+use \ZeiglerD\PhpEngine\Controller;
+
+final class GamesController extends Controller
 {
   final public function cheddar($t) {
     $t->addScripts([
