@@ -4,14 +4,14 @@ namespace ZeiglerD\ZeiglerD\Controllers;
 
 class AdminController extends \ZeiglerD\PhpEngine\Controllers\AdminController
 {
-  public function packDb($t) {
-    $db = parent::packDb($t);
+  public function packDb($t, $render = true) {
+    parent::packDb($t, !$render);
 
-    $pageHome = $db::findOrCreate('page', [
+    $pageHome = $t->Db::findOrCreate('page', [
       'title' => 'Welcome to ZeiglerD!',
       'message' => ''
     ]);
 
-    $t->Template->renderView([]);
+    return $t->Template->renderView([]);
   }
 }
