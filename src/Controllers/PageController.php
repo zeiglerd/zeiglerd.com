@@ -12,7 +12,7 @@ final class PageController extends Controller
   const SENIOR_SOFTWARE_DEVELOPER_PROFILE = 'Software developer with seven years of SaaS industry experience — working predominantly as a full-stack web developer within a JavaScript environment — leveraging cloud-based computing for scalable infrastructure solutions, and working alongside designers to create web applications utilizing JS, HTML5, and CSS3.';
 
   const SENIOR_SUPPORT_ENGINEER_TITLE = 'Senior Support Engineer';
-  const SENIOR_SUPPORT_ENGINEER_PROFILE = 'Senior engineer with seven years of SaaS industry experience — working predominantly within an AWS and JavaScript environment — triaging platform issues, communicating expectations with key stakeholders, and documenting software and procedures to more quickly and effectively identify future bugs and outages.';
+  const SENIOR_SUPPORT_ENGINEER_PROFILE = 'Senior engineer with seven years of SaaS industry experience — working predominantly within an AWS and JS environment — triaging platform issues, communicating expectations with customers and key stakeholders, and documenting software and procedures to more quickly and effectively resolve future bugs and outages.';
 
   const SKILLS = [
     [
@@ -59,13 +59,19 @@ final class PageController extends Controller
       'keySkill' => true,
     ],
     [
-      'title' => 'Creating Dev Tickets and Setting Expectations with Key Stakeholders',
+      'title' => 'Creating Dev Tickets and Communicating Expectations with Key Stakeholders',
       'prioritizedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
       'omittedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
       'keySkill' => true,
     ],
     [
-      'title' => 'Documenting and Delivering Platform Software Training',
+      'title' => 'Writing Software Documentation, READMEs, and CHANGELOGs',
+      'prioritizedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
+      'omittedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'keySkill' => true,
+    ],
+    [
+      'title' => 'Delivering Platform and Software Training Internally and Externally',
       'prioritizedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
       'omittedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
       'keySkill' => true,
@@ -468,6 +474,22 @@ final class PageController extends Controller
       'title' => '<a href="https://www.typescriptlang.org/" title="More About TypeScript">TypeScript</a>',
       'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
       'keySkill' => false,
+    ],
+    [
+      'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
+      'keySkill' => false,
+      'displayAsList' => false,
+      'subSkills' => [
+        [
+          'title' => '<a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" title="More About WebSockets">WebSockets</a>',
+          'keySkill' => false,
+        ],
+        [
+          'title' => '<a href="https://socket.io/" title="More About Socket.IO">Socket.IO</a>',
+          'keySkill' => false,
+        ],
+      ],
     ],
     [
       'title' => '<a href="https://angularjs.org/" title="More About AngularJS">AngularJS</a>',

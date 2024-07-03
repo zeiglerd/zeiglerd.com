@@ -4,7 +4,7 @@
 
   <section class="max-width-fluid xxs-col">
 
-    <nav class="xxs-col <?= $this->t->Config->local ? '' : 'hidden'; ?>">
+    <nav class="xxs-col <?= $this->t->Config->local ? '' : 'hidden'; ?> no-print">
       <menu class="xxs-col">
         <li><a href="<?= $this->t->Helpers::getLink('/page/resume/'); ?>">Senior Software Developer</a></li>
         <li><a href="<?= $this->t->Helpers::getLink('/page/resume/?title=Senior%20Support%20Engineer'); ?>">Senior Support Engineer</a></li>
@@ -134,6 +134,7 @@
               <li>
                 <p>Wrote a new scalable RESTful inventory API (Node.js + hapi Framework) as a microservice, which surfaced — both internally to our systems and externally to customers (using Kong API Gateway) — data indexed into Elasticsearch. This included:</p>
                 <ul>
+                  <li>Setting product expectations with external customers and stakeholders and communicating progress.</li>
                   <li>
                     <p>Creating:</p>
                     <ul>
@@ -141,8 +142,9 @@
                       <li>A scalable Lambda to digest the SQS queue and put items into Elasticsearch.</li>
                       <li>A DLQ to retry failures in the Lambda.</li>
                       <li>EventBridge events to watch for failures end-to-end.</li>
-                      <li>All infrastructure is written as code using Terraform (IaC).</li>
+                      <li>All infrastructure as code using Terraform (IaC).</li>
                       <li>Jenkins jobs to deploy the API and Lambda to QA and Production environments.</li>
+                      <li>Documentation and providing IT support for external development team's implementation of our service.</li>
                     </ul>
                   </li>
                   <li>Refactoring of pre-existing internal systems to ensure compatibility with changes.</li>
@@ -255,7 +257,7 @@
 
     <section class="xxs-col">
       <section class="xxs-col">
-        <p class="xxs-col text-right">v4.0.0</p>
+        <p class="xxs-col text-right">v4.0.1</p>
       </section>
     </section>
 
