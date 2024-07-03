@@ -19,38 +19,38 @@
 
   > section {
 
-    hgroup {
-      color: $color-dark-primary;
-      padding: calc(#{$gap-size} / 2) 0;
-
-      :not(:first-child) {
-        padding: calc(#{$gap-size} / 6) 0;
-      }
-
-      h1 {
-        color: $color-primary;
-        font-size: pxtorem(28);
-      }
-
-      h2 {
-        color: $color-primary;
-        font-size: pxtorem(20);
-      }
-
-      h3 {
-        color: $color-primary;
-        font-size: pxtorem(18);
-      }
-    }
-
     > section {
       border-top: $one-px solid $color-secondary;
 
-      &:first-child { // @NOTE Name
+      hgroup {
+        color: $color-dark-primary;
+        padding: calc(#{$gap-size} / 2) 0;
+
+        :not(:first-child) {
+          padding: calc(#{$gap-size} / 6) 0;
+        }
+
+        h1 {
+          color: $color-primary;
+          font-size: pxtorem(28);
+        }
+
+        h2 {
+          color: $color-primary;
+          font-size: pxtorem(20);
+        }
+
+        h3 {
+          color: $color-primary;
+          font-size: pxtorem(18);
+        }
+      }
+
+      &:nth-of-type(1) { // @NOTE Name
         padding: $gap-size 0;
       }
 
-      &:nth-child(2) { // @NOTE Profile
+      &:nth-of-type(2) { // @NOTE Profile
         padding: $gap-size 0;
 
         > section {
@@ -58,7 +58,7 @@
         }
       }
 
-      &:nth-child(3) { // @NOTE Aside and main
+      &:nth-of-type(3) { // @NOTE Aside and main
 
         aside {
           border-right: $one-px solid $color-secondary;
@@ -154,7 +154,7 @@
         }
       }
 
-      &:nth-child(4) { // @NOTE QR code
+      &:nth-of-type(4) { // @NOTE QR code
         padding: calc(#{$gap-size} * 2) 0;
 
         > section {
@@ -167,7 +167,7 @@
         }
       }
 
-      &:nth-child(5) { // @NOTE Revision
+      &:nth-of-type(5) { // @NOTE Revision
         padding: calc(#{$gap-size} * 2) 0;
       }
     }

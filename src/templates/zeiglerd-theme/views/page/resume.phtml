@@ -1,12 +1,20 @@
 <?php $this->renderPartial('head'); ?>
 <article class="xxs-col" data-page="page-resume">
   <?php $this->renderPartial('header'); ?>
+
   <section class="max-width-fluid xxs-col">
+
+    <nav class="xxs-col <?= $this->t->Config->local ? '' : 'hidden'; ?>">
+      <menu class="xxs-col">
+        <li><a href="<?= $this->t->Helpers::getLink('/page/resume/'); ?>">Senior Software Developer</a></li>
+        <li><a href="<?= $this->t->Helpers::getLink('/page/resume/?title=Senior%20Support%20Engineer'); ?>">Senior Support Engineer</a></li>
+      </menu>
+    </nav>
 
     <section class="xxs-col">
       <hgroup class="xxs-col text-center">
         <h1 class="xxs-col">Dustin Zeigler</h1>
-        <p class="xxs-col">Senior Software Developer</p>
+        <p class="xxs-col"><?= $this->t->Controller->getResumeTitle(); ?></p>
       </hgroup>
     </section>
 
@@ -15,7 +23,7 @@
         <h2 class="xxs-col">Profile</h2>
       </hgroup>
       <section class="xxs-col">
-        <p class="xxs-col text-center">Software developer with seven years of SaaS industry experience — working predominantly as a full-stack web developer — within a JavaScript environment, leveraging cloud-based computing for scalable infrastructure solutions, and working alongside front-end designers to create web applications utilizing JS, HTML5, and CSS3.</p>
+        <p class="xxs-col text-center"><?= $this->t->Controller->getResumeProfile(); ?></p>
       </section>
     </section>
 
@@ -62,87 +70,7 @@
           <section class="xxs-col">
             <p class="xxs-col">Seven years of industry experience with:</p>
             <ul class="xxs-col">
-              <li>Object-Oriented Programming (Classical and Prototypal Inheritance)</li>
-              <li>Abstract Classes, Factories, and Interfaces</li>
-              <li>Backlog Planning and Prioritization</li>
-              <li>SaaS Web Platforms, Portals, and Products</li>
-              <li>Scalable Microservices</li>
-              <li>Leadership of a Small Development Team (four members)</li>
-              <li>Training and Onboarding New Staff Members</li>
-              <li>Pair Programming</li>
-              <li>Agile and SCRUM Software Development</li>
-              <li>Feature Branch Workflow</li>
-              <li>Test Driven Development</li>
-              <li>
-                <p>JavaScript (<a href="https://ecma-international.org/" title="More About ECMAScript">ECMAScript</a>, MJS, CJS)</p>
-                <ul>
-                  <li>
-                    <p><a href="https://nodejs.org/en" title="More About Node.js">Node.js</a></p>
-                    <ul>
-                      <li>
-                        <p><a href="https://react.dev/" title="More About React">React</a></p>
-                        <ul>
-                          <li>Component Lifecycle</li>
-                          <li>Functional Components</li>
-                          <li>JavaScript XML (JSX)</li>
-                          <li><a href="https://react-redux.js.org/" title="More About React">Redux</a></li>
-                          <li>Server-Side Rendering</li>
-                          <li>State Management</li>
-                        </ul>
-                      </li>
-                      <li>Lazy Loading</li>
-                      <li>Tree Shaking</li>
-                      <li>Additional Third-party Modules: <a href="https://hapi.dev/" title="More About hapi">hapi Framework</a>,
-                        <a href="https://lodash.com/" title="More About Lodash">Lodash</a>,
-                        <a href="https://axios-http.com/" title="More About Axios">Axios</a>,
-                        <a href="https://www.npmjs.com/package/nconf" title="More nconf">nconf</a>,
-                        <a href="https://gruntjs.com/" title="More About Grunt.js">Grunt.js</a>
-                      </li>
-                      <li>Built-in Modules: fs, os, path, querystring, url</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <p><a href="https://jquery.com/" title="More About jQuery">jQuery</a> (when not in React)</p>
-                    <ul>
-                      <li><a href="https://api.jquery.com/jQuery.ajax/" title="More About AJAX">AJAX</a></li>
-                    </ul>
-                  </li>
-                  <li>Unit Testing with <a href="https://hapi.dev/module/lab/" title="More About @hapi/lab">@hapi/lab</a>, <a href="https://hapi.dev/module/code/" title="More About @hapi/code">@hapi/code</a>, and <a href="https://jestjs.io/" title="More About Jest">Jest</a></li>
-                </ul>
-              </li>
-              <li>
-                <p>DevOps Practices</p>
-                <ul>
-                  <li>AWS: <a href="https://aws.amazon.com/batch/" title="More About Batch">Batch</a>,
-                      <a href="https://aws.amazon.com/ec2/" title="More About EC2">EC2</a>,
-                      <a href="https://aws.amazon.com/ecs/" title="More About ECS">ECS</a>,
-                      <a href="https://aws.amazon.com/lambda/" title="More About Lambda">Lambda</a>,
-                      <a href="https://aws.amazon.com/rds/" title="More About RDS">RDS</a>,
-                      <a href="https://aws.amazon.com/s3/" title="More About S3">S3</a>,
-                      <a href="https://aws.amazon.com/security/" title="More About Security">Security</a>,
-                      <a href="https://aws.amazon.com/sqs/" title="More About SQS">SQS</a> (FIFO),
-                      <a href="https://aws.amazon.com/systems-manager/features/#Parameter_Store" title="More About SSM">SSM</a>
-                  </li>
-                  <li>Scalable Deployment Pipelines (CI/CD)</li>
-                  <li><a href="https://git-scm.com/" title="More About Git">Git</a>, <a href="https://github.com/" title="More About GitHub">GitHub</a>, and <a href="https://bitbucket.org/product/" title="More About Bitbucket">Bitbucket</a></li>
-                  <li><a href="https://www.terraform.io/" title="More About Terraform">Terraform</a> (IaC)</li>
-                  <li><a href="https://www.jenkins.io/" title="More About Jenkins">Jenkins</a></li>
-                  <li>Bash and Ubuntu Server</li>
-                  <li>cronjobs</li>
-                </ul>
-              </li>
-              <li><a href="https://www.mysql.com/" title="More About MySQL">MySQL</a> Databases</li>
-              <li><a href="https://sequelize.org/" title="More About Sequelize">Sequelize</a> (ORM)</li>
-              <li><a href="https://www.liquibase.com/" title="More About Liquibase">Liquibase</a></li>
-              <li><a href="https://www.elastic.co/" title="More About Elasticsearch">Elasticsearch</a> Indices</li>
-              <li><a href="https://swagger.io/specification/" title="More About Swagger">Swagger</a> (OpenAPI Specification)</li>
-              <li><a href="https://sass-lang.com/" title="More About SASS">SASS</a>, <a href="https://lesscss.org/" title="More About LESS">LESS</a>, and CSS3</li>
-              <li>HTML5 Hierarchy and Semantics</li>
-              <li>Web Accessibility (ADA Compliance)</li>
-              <li><a href="https://semver.org/" title="More About SemVer">Semantic Versioning</a></li>
-              <li>Monolithic Java Web Apps and APIs (<a href="https://grails.org/" title="Grails">Grails</a> and Custom Frameworks)</li>
-              <li>Monolithic PHP Web Apps and APIs (<a href="https://framework.zend.com/" title="More About Zend Framework">Zend</a> and Custom Frameworks)</li>
-              <li>Content Management Systems (namely <a href="https://wordpress.com/" title="More About WordPress">WordPress</a> and WordPress Multisite)</li>
+              <?= $this->t->Controller->generateKeySkills(); ?>
             </ul>
           </section>
         </section>
@@ -154,21 +82,7 @@
           <section class="xxs-col">
             <p class="xxs-col">Some experience with:</p>
             <ul class="xxs-col">
-              <li><a href="https://www.python.org/" title="More About Python">Python</a></li>
-              <li><a href="https://reactnative.dev/" title="More About React Native">React Native</a></li>
-              <li><a href="https://www.typescriptlang.org/" title="More About TypeScript">TypeScript</a></li>
-              <li><a href="https://angularjs.org/" title="More About AngularJS">AngularJS</a></li>
-              <li><a href="https://www.mongodb.com/" title="More About MongoDB">MongoDB</a> (and other NoSQL flavors)</li>
-              <li><a href="https://memcached.org/" title="More About Memcached">Memcached</a></li>
-              <li><a href="https://expressjs.com/" title="More About Express">Express</a></li>
-              <li>Regular Expressions</li>
-              <li><a href="https://konghq.com/" title="More About Kong API Gateway">Kong API Gateway</a></li>
-              <li>AWS: <a href="https://aws.amazon.com/api-gateway/" title="More About API Gateway">API Gateway</a>,
-                  <a href="https://aws.amazon.com/cli/" title="More About CLI">CLI</a>,
-                  <a href="https://aws.amazon.com/documentdb/" title="More About DocumentDB">DocumentDB</a>,
-                  <a href="https://aws.amazon.com/sns/" title="More About SNS">SNS</a>,
-                  <a href="https://aws.amazon.com/step-functions/" title="More About Step Functions">Step Functions</a>
-              </li>
+              <?= $this->t->Controller->generateAdditionalSkills(); ?>
             </ul>
           </section>
         </section>
@@ -193,7 +107,7 @@
                   <li>Updating an ad prebid API to use a new source for GEO data, as well as writing a cronjob to update ad prebid data regularly, from a third-party source.</li>
                   <li>Helping to integrate CAS updates to support SSO for employees.</li>
                   <li>Creating a new React web app to replace a legacy lead delivery tool (written in Java) for customers.</li>
-                  <li>Investigating slow-running queries, and wrote archiving procedures to remove outdated and irrelevant rows (1-billion+ across dozens of tables), greatly boosting MySQL query performance of over a half-dozen Java services and monolithic web apps.</li>
+                  <li>Investigated slow-running queries, and wrote archiving procedures to remove outdated and irrelevant rows (1-billion+ across dozens of tables), greatly boosting MySQL query performance of over a half-dozen Java services and monolithic web apps.</li>
                   <li>A UI redesign project of admin and inventory management pages (monolithic Java + Grails web app).</li>
                 </ul>
               </li>
@@ -223,12 +137,12 @@
                   <li>
                     <p>Creating:</p>
                     <ul>
-                      <li>A SQS queue to enqueue inventory items needing to be indexed.</li>
+                      <li>An SQS queue to enqueue inventory items needing to be indexed.</li>
                       <li>A scalable Lambda to digest the SQS queue and put items into Elasticsearch.</li>
                       <li>A DLQ to retry failures in the Lambda.</li>
                       <li>EventBridge events to watch for failures end-to-end.</li>
-                      <li>All infrastructure written as code using Terraform (IaC).</li>
-                      <li>Jenkins jobs for deployment of API and Lambda to QA and Production environments.</li>
+                      <li>All infrastructure is written as code using Terraform (IaC).</li>
+                      <li>Jenkins jobs to deploy the API and Lambda to QA and Production environments.</li>
                     </ul>
                   </li>
                   <li>Refactoring of pre-existing internal systems to ensure compatibility with changes.</li>
@@ -251,15 +165,15 @@
             <ul class="xxs-col">
               <li>Worked hand-in-hand with the backend development team to generate SASS templates for a WordPress custom multisite platform that serviced 500+ customer websites.</li>
               <li>Pushed for new standards (component reusability, HTML5 semantics, CSS3 pseudo-selectors, SASS variables/functions/mixins, etc.) to be enforced.</li>
-              <li>Later became a full-stack developer in this team, working on the custom WordPress platform (PHP / Zend framework), integrating a new inventory API, and contributing to many of the custom WordPress plugins.</li>
+              <li>Later I became a full-stack developer in this team, working on the custom WordPress platform (PHP / Zend framework), integrating a new inventory API, and contributing to many of the custom WordPress plugins.</li>
               <li>Performed maintenance on the website generator tool (Node.js + Express) when it fell over and the knowledge from previous developers was no longer available.</li>
               <li>
-                <p>Began leading a small development team of four as the company grew and the platform implementation team expanded. This included responsibilities like:</p>
+                <p>I began leading a small development team of four as the company grew and the platform implementation team expanded. This included responsibilities like:</p>
                 <ul>
                   <li>Ticket creation (Jira) for upcoming projects.</li>
                   <li>Organizing team meetings to review tickets before upcoming sprints.</li>
                   <li>Leading biweekly sprint review calls.</li>
-                  <li>Deliverying team 'Wins' at our weekly, 'Fridays are for Winners' meetings.</li>
+                  <li>Delivering team 'Wins' at our weekly, 'Fridays are for Winners' meetings.</li>
                 </ul>
               </li>
             </ul>
@@ -274,10 +188,10 @@
           </hgroup>
           <section class="xxs-col">
             <ul class="xxs-col">
-              <li>Many tickets required updating KB articles, communicating across multiple account managers, development teams, managers, and product owners, and a lot of MySQL entries.</li>
+              <li>Many tickets required updating KB articles, communicating across multiple account managers, development teams, managers, and product owners, and MySQL entries.</li>
               <li>Managed and triaged all incoming queries for internal and external customers.</li>
               <li>Provide product support and training to account managers, sales reps, and external customers.</li>
-              <li>Clearly and concisely reported upon issues (resolved or not) through Jira, keeping issues in priority order, and setting expectations with key stakeholders.</li>
+              <li>Clearly and concisely reported issues (resolved or not) through Jira, keeping issues in priority order, and setting expectations with key stakeholders.</li>
             </ul>
           </section>
         </article>
@@ -291,7 +205,7 @@
           <section class="xxs-col">
             <ul class="xxs-col">
               <li>A unique crowd-funding platform for universities, their students, and their communities.</li>
-              <li>Planned, developed, and maintained back-end architecture for web app.</li>
+              <li>Planned, developed, and maintained back-end architecture for a web app.</li>
               <li>Created database schemas (MongoDB) to store projects, users, funding, etc.</li>
               <li>Created a secured RESTful API (Node.js + Express) to surface stored data safely.</li>
               <li>Helped implement an algorithm, to determine contributor impact across projects, based on GEO location.</li>
@@ -335,13 +249,13 @@
         <img class="xxs-col" src="/images/templates/zeiglerd-theme/views/page/resume-qr-code.svg" alt="QR code" />
       </section>
       <section class="xxs-col">
-        <p class="break-word text-center">Or check-out the source code on GitHub:<br><a href="https://github.com/zeiglerd/zeiglerd.com/tree/main/src/templates/zeiglerd-theme/views/page">https://github.com/zeiglerd/zeiglerd.com/tree/main<br>/src/templates/zeiglerd-theme/views/page</a></p>
+        <p class="break-word text-center">Or check out the source code on GitHub:<br><a href="https://github.com/zeiglerd/zeiglerd.com/tree/main/src/templates/zeiglerd-theme/views/page">https://github.com/zeiglerd/zeiglerd.com/tree/main<br>/src/templates/zeiglerd-theme/views/page</a></p>
       </section>
     </section>
 
     <section class="xxs-col">
       <section class="xxs-col">
-        <p class="xxs-col text-right">v3.4.1</p>
+        <p class="xxs-col text-right">v4.0.0</p>
       </section>
     </section>
 
