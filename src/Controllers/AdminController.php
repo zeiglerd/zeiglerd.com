@@ -7,15 +7,15 @@ use ZeiglerD\PhpEngine\Models\Page;
 
 class AdminController extends Controller
 {
-  public function packDb($t, $render = true) {
-    parent::packDb($t, !$render);
+  public function packDb($render = true) {
+    parent::packDb(!$render);
 
-    $pageHome = (new Page($t))->findOrCreate([
+    $homePage = (new Page($t))->findOrCreate([
       'title' => 'Welcome to Zeigler D!',
       'message' => '',
       'homepage' => 1
     ]);
 
-    return $t->Template->renderView([]);
+    return $this->t->Template->renderView([]);
   }
 }
