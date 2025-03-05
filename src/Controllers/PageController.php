@@ -9,7 +9,10 @@ use ZeiglerD\PhpEngine\Models\Page;
 final class PageController extends Controller
 {
   const SENIOR_SOFTWARE_DEVELOPER_TITLE = 'Senior Software Developer';
-  const SENIOR_SOFTWARE_DEVELOPER_PROFILE = 'Software developer with seven years of SaaS industry experience — working predominantly as a full-stack web developer within a JavaScript environment — leveraging cloud-based computing for scalable infrastructure solutions, and working alongside designers to create web applications utilizing JS, HTML5, and CSS3.';
+  const SENIOR_SOFTWARE_DEVELOPER_PROFILE = 'Software developer with seven years of SaaS industry experience — working predominantly as a full-stack web developer in a JavaScript environment — architecting RESTful APIs, leveraging cloud computing for scalable solutions, and working alongside designers to create web applications utilizing JS, HTML5, and CSS3.';
+
+  const SENIOR_PHP_DEVELOPER_TITLE = 'Senior PHP Developer';
+  const SENIOR_PHP_DEVELOPER_PROFILE = 'Software developer with seven years of SaaS industry experience — working predominantly as a full-stack web developer — architecting RESTful APIs, leveraging cloud computing for scalable solutions, and working alongside designers to create web applications utilizing PHP, JS, HTML5, and CSS3.';
 
   const SENIOR_SUPPORT_ENGINEER_TITLE = 'Senior Support Engineer';
   const SENIOR_SUPPORT_ENGINEER_PROFILE = 'Senior engineer with seven years of SaaS industry experience — working predominantly within an AWS and JS environment — triaging platform issues, communicating expectations with customers and key stakeholders, and documenting software and procedures to more quickly and effectively resolve future bugs and outages.';
@@ -55,25 +58,25 @@ final class PageController extends Controller
     [
       'title' => 'Triaging and Resolving Issues Raised by Internal and External Customers',
       'prioritizedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
-      'omittedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'omittedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE, self::SENIOR_PHP_DEVELOPER_TITLE],
       'keySkill' => true,
     ],
     [
       'title' => 'Creating Dev Tickets and Communicating Expectations with Key Stakeholders',
       'prioritizedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
-      'omittedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'omittedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE, self::SENIOR_PHP_DEVELOPER_TITLE],
       'keySkill' => true,
     ],
     [
       'title' => 'Writing Software Documentation, READMEs, and CHANGELOGs',
       'prioritizedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
-      'omittedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'omittedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE, self::SENIOR_PHP_DEVELOPER_TITLE],
       'keySkill' => true,
     ],
     [
       'title' => 'Delivering Platform and Software Training Internally and Externally',
       'prioritizedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
-      'omittedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'omittedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE, self::SENIOR_PHP_DEVELOPER_TITLE],
       'keySkill' => true,
     ],
     [
@@ -387,10 +390,21 @@ final class PageController extends Controller
       'keySkill' => true,
     ],
     [
-      'title' => '<a href="https://sequelize.org/" title="More About Sequelize">Sequelize</a> (ORM)',
+      'title' => 'Object Relational Mapper',
       'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
       'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
       'keySkill' => true,
+      'displayAsList' => false,
+      'subSkills' => [
+        [
+          'title' => '<a href="https://www.doctrine-project.org/" title="More About Doctrine">Doctrine</a>',
+          'keySkill' => false,
+        ],
+        [
+          'title' => '<a href="https://sequelize.org/" title="More About Sequelize">Sequelize</a>',
+          'keySkill' => true,
+        ],
+      ],
     ],
     [
       'title' => '<a href="https://www.liquibase.com/" title="More About Liquibase">Liquibase</a>',
@@ -451,17 +465,17 @@ final class PageController extends Controller
     ],
     [
       'title' => 'Monolithic PHP Web Apps and APIs (<a href="https://framework.zend.com/" title="More About Zend Framework">Zend</a> and Custom Frameworks)',
-      'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE, self::SENIOR_SUPPORT_ENGINEER_TITLE],
+      'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE, self::SENIOR_SUPPORT_ENGINEER_TITLE, self::SENIOR_PHP_DEVELOPER_TITLE],
       'keySkill' => true,
     ],
     [
-      'title' => 'Content Management Systems (namely <a href="https://wordpress.com/" title="More About WordPress">WordPress</a> and WordPress Multisite)',
+      'title' => 'Content Management Systems',
       'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE, self::SENIOR_SUPPORT_ENGINEER_TITLE],
       'keySkill' => true,
     ],
     [
       'title' => '<a href="https://www.python.org/" title="More About Python">Python</a>',
-      'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'prioritizedRoles' => [],
       'keySkill' => false,
     ],
     [
@@ -492,41 +506,69 @@ final class PageController extends Controller
       ],
     ],
     [
+      'title' => 'JSON Web Tokens',
+      'prioritizedRoles' => [],
+      'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
+      'keySkill' => false,
+    ],
+    [
       'title' => '<a href="https://angularjs.org/" title="More About AngularJS">AngularJS</a>',
-      'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'prioritizedRoles' => [],
       'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
       'keySkill' => false,
     ],
     [
       'title' => '<a href="https://www.mongodb.com/" title="More About MongoDB">MongoDB</a> (and other NoSQL flavors)',
-      'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'prioritizedRoles' => [],
       'keySkill' => false,
     ],
     [
       'title' => '<a href="https://memcached.org/" title="More About Memcached">Memcached</a>',
-      'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'prioritizedRoles' => [],
       'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
       'keySkill' => false,
     ],
     [
       'title' => '<a href="https://expressjs.com/" title="More About Express">Express</a>',
-      'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'prioritizedRoles' => [],
       'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
       'keySkill' => false,
     ],
     [
       'title' => 'Regular Expressions',
-      'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'prioritizedRoles' => [],
       'keySkill' => false,
     ],
     [
       'title' => '<a href="https://konghq.com/" title="More About Kong API Gateway">Kong API Gateway</a>',
-      'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'prioritizedRoles' => [],
+      'keySkill' => false,
+    ],
+    [
+      'title' => '<a href="https://laravel.com/" title="More About Laravel">Laravel</a>',
+      'prioritizedRoles' => [self::SENIOR_PHP_DEVELOPER_TITLE],
+      'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
+      'keySkill' => false,
+    ],
+    [
+      'title' => '<a href="https://symfony.com/" title="More About Symfony">Symfony</a>',
+      'prioritizedRoles' => [self::SENIOR_PHP_DEVELOPER_TITLE],
+      'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
+      'keySkill' => false,
+    ],
+    [
+      'title' => '<a href="https://wordpress.com/" title="More About WordPress">WordPress</a> (Multisite)',
+      'prioritizedRoles' => [self::SENIOR_PHP_DEVELOPER_TITLE],
+      'keySkill' => false,
+    ],
+    [
+      'title' => 'PayPal Card Payments',
+      'prioritizedRoles' => [],
       'keySkill' => false,
     ],
     [
       'title' => 'AWS',
-      'prioritizedRoles' => [self::SENIOR_SOFTWARE_DEVELOPER_TITLE],
+      'prioritizedRoles' => [],
       'keySkill' => false,
       'displayAsList' => false,
       'subSkills' => [
@@ -625,6 +667,8 @@ final class PageController extends Controller
     switch ($this->getResumeTitle()) {
       case self::SENIOR_SOFTWARE_DEVELOPER_TITLE:
         return self::SENIOR_SOFTWARE_DEVELOPER_PROFILE;
+      case self::SENIOR_PHP_DEVELOPER_TITLE:
+        return self::SENIOR_PHP_DEVELOPER_PROFILE;
       case self::SENIOR_SUPPORT_ENGINEER_TITLE:
         return self::SENIOR_SUPPORT_ENGINEER_PROFILE;
     }

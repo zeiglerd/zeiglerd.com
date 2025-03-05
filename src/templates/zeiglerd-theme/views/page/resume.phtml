@@ -4,12 +4,15 @@
 
   <section class="max-width-fluid xxs-col">
 
-    <nav class="xxs-col <?= $this->t->Config->local ? '' : 'hidden'; ?> no-print">
-      <menu class="xxs-col">
-        <li><a href="<?= $this->t->Helpers::getLink('/page/resume/'); ?>">Senior Software Developer</a></li>
-        <li><a href="<?= $this->t->Helpers::getLink('/page/resume/?title=Senior%20Support%20Engineer'); ?>">Senior Support Engineer</a></li>
-      </menu>
-    </nav>
+    <?php if ($this->t->Config->local) { ?>
+      <nav class="xxs-col no-print">
+        <menu class="xxs-col">
+          <li><a href="<?= $this->t->Helpers::getLink('/page/resume/'); ?>">Senior Software Developer</a></li>
+          <li><a href="<?= $this->t->Helpers::getLink('/page/resume/?title=Senior%20PHP%20Developer'); ?>">Senior PHP Developer</a></li>
+          <li><a href="<?= $this->t->Helpers::getLink('/page/resume/?title=Senior%20Support%20Engineer'); ?>">Senior Support Engineer</a></li>
+        </menu>
+      </nav>
+    <?php } ?>
 
     <section class="xxs-col">
       <hgroup class="xxs-col text-center">
@@ -39,7 +42,7 @@
               <ul class="xxs-col list-style-none">
                 <li><a href="tel:+15737895757" title="Call Me">+1 (573) 789-5757</a></li>
                 <li><a href="mailto:dustin.zeigler@live.com" title="Email Me">dustin.zeigler@live.com</a></li>
-                <li>1307 Sandra Ave<br>Apt B<br>Warrensburg, MO. 64093</li>
+                <li>Warrensburg, MO. 64093</li>
                 <li><a href="https://www.linkedin.com/in/zeiglerd/" title="Visit On LinkedIn">https://www.linkedin.com/in/zeiglerd/</a></li>
               </ul>
             </address>
@@ -257,7 +260,7 @@
 
     <section class="xxs-col">
       <section class="xxs-col">
-        <p class="xxs-col text-right">v4.0.1</p>
+        <p class="xxs-col text-right">v4.0.2</p>
       </section>
     </section>
 

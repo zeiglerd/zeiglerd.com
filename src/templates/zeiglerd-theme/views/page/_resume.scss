@@ -100,7 +100,7 @@
               > address > ul {
 
                 li:not(:has(ul)) {
-                  padding: calc(#{$gap-size} / 2) 0;
+                  padding: calc(#{$gap-size} / 2.2) 0;
                 }
               }
             }
