@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a435ec89c756a48f0bd24bf44e0f0a3",
+    "content-hash": "f7ebd871ab281a528eb040b23c1ddb95",
     "packages": [
         {
             "name": "gabordemooij/redbean",
@@ -103,16 +103,16 @@
         },
         {
             "name": "zeiglerd/php-engine",
-            "version": "dev-main",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "git@github.com:zeiglerd/php-engine.git",
-                "reference": "5e5ea53214d292bf75a24192c3c1a45daf8cbb9c"
+                "reference": "f4dac7fc8b12bc541de0b9017d562a3439cb8df2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/5e5ea53214d292bf75a24192c3c1a45daf8cbb9c",
-                "reference": "5e5ea53214d292bf75a24192c3c1a45daf8cbb9c",
+                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/f4dac7fc8b12bc541de0b9017d562a3439cb8df2",
+                "reference": "f4dac7fc8b12bc541de0b9017d562a3439cb8df2",
                 "shasum": ""
             },
             "require": {
@@ -123,7 +123,6 @@
                 "phpquery/phpquery": "^0.0.4",
                 "phpunit/phpunit": "^9.6"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -165,11 +164,23 @@
                 "post-update-cmd": [
                     "npm i"
                 ],
-                "restore-engine-git": [
+                "post-install-hook": [
+                    "composer restore-git && npm i"
+                ],
+                "post-update-hook": [
+                    "composer restore-git && npm i"
+                ],
+                "pre-install-hook": [
+                    "composer store-git"
+                ],
+                "pre-update-hook": [
+                    "composer store-git"
+                ],
+                "restore-git": [
                     "[ -d ~/AppData/Local/Temp/.git ] && (mv ~/AppData/Local/Temp/.git ./ && git restore . && git stash pop && rm ./.stash) || echo >nul"
                 ],
-                "store-engine-git": [
-                    "cd . > ./.stash && git stash -u && mv ./.git ~/AppData/Local/Temp && cd ./../../.."
+                "store-git": [
+                    "[ -d './.git' ] && (cd . > ./.stash && git stash -u && mv ./.git ~/AppData/Local/Temp) || echo >nul"
                 ],
                 "test": [
                     "./vendor/bin/phpunit tests"
@@ -181,10 +192,10 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/zeiglerd/php-engine/tree/main",
+                "source": "https://github.com/zeiglerd/php-engine/tree/dev",
                 "issues": "https://github.com/zeiglerd/php-engine/issues"
             },
-            "time": "2024-06-30T05:21:50+00:00"
+            "time": "2025-04-03T05:31:29+00:00"
         }
     ],
     "packages-dev": [],
@@ -195,7 +206,7 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

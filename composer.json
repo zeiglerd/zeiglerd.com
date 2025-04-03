@@ -1,33 +1,26 @@
 {
   "name": "zeiglerd/zeiglerd.com",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "project",
   "scripts": {
-    "build:local": "cd ./vendor/zeiglerd/php-engine && composer build:local",
-    "build:prod": "cd ./vendor/zeiglerd/php-engine && composer build:prod",
-    "build:qa": "cd ./vendor/zeiglerd/php-engine && composer build:qa",
-    "deploy:prod": "cd ./vendor/zeiglerd/php-engine && composer deploy:prod",
-    "deploy:qa": "cd ./vendor/zeiglerd/php-engine && composer deploy:qa",
-    "dev:local": [
-      "Composer\\Config::disableProcessTimeout",
-      "cd ./vendor/zeiglerd/php-engine && composer dev:local"
-    ],
-    "dev:prod": [
-      "Composer\\Config::disableProcessTimeout",
-      "cd ./vendor/zeiglerd/php-engine && composer dev:prod"
-    ],
-    "dev:qa": [
-      "Composer\\Config::disableProcessTimeout",
-      "cd ./vendor/zeiglerd/php-engine && composer dev:qa"
-    ],
-    "grunt": "cd ./vendor/zeiglerd/php-engine && npx grunt",
-    "restore-engine-git": "cd ./vendor/zeiglerd/php-engine && composer restore-engine-git",
-    "store-engine-git": "[ -d './vendor/zeiglerd/php-engine/.git' ] && (cd ./vendor/zeiglerd/php-engine && composer store-engine-git) || echo >nul",
-    "post-install-cmd": "composer restore-engine-git && composer install",
-    "post-update-cmd": "composer restore-engine-git && composer update",
-    "pre-install-cmd": "composer store-engine-git",
-    "pre-update-cmd": "composer store-engine-git",
-    "test": "./vendor/bin/phpunit tests"
+    "build:local": "composer engine build:local",
+    "build:dev": "composer engine build:dev",
+    "build:qa": "composer engine build:qa",
+    "build:prod": "composer engine build:prod",
+    "deploy:dev": "composer engine deploy:dev",
+    "deploy:qa": "composer engine deploy:qa",
+    "deploy:prod": "composer engine deploy:prod",
+    "dev:local": [ "Composer\\Config::disableProcessTimeout", "composer engine dev:local" ],
+    "dev:dev": [ "Composer\\Config::disableProcessTimeout", "composer engine dev:dev" ],
+    "dev:qa": [ "Composer\\Config::disableProcessTimeout", "composer engine dev:qa" ],
+    "dev:prod": [ "Composer\\Config::disableProcessTimeout", "composer engine dev:prod" ],
+    "engine": "cd ./vendor/zeiglerd/php-engine/ && composer",
+    "grunt": "cd ./vendor/zeiglerd/php-engine/ && npx grunt",
+    "post-install-cmd": "composer engine post-install-hook",
+    "post-update-cmd": "composer engine post-update-hook",
+    "pre-install-cmd": "[ -d ./vendor/zeiglerd/php-engine/ ] && (composer engine pre-install-hook) || echo >nul",
+    "pre-update-cmd": "[ -d ./vendor/zeiglerd/php-engine/ ] && (composer engine pre-update-hook) || echo >nul",
+    "test": "./vendor/bin/phpunit/ tests"
   },
   "autoload": {
     "psr-4": {
@@ -47,6 +40,6 @@
     }
   ],
   "require": {
-    "zeiglerd/php-engine": "dev-main"
+    "zeiglerd/php-engine": "dev-dev"
   }
 }
