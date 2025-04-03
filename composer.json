@@ -14,7 +14,7 @@
     "dev:dev": [ "Composer\\Config::disableProcessTimeout", "composer engine dev:dev" ],
     "dev:qa": [ "Composer\\Config::disableProcessTimeout", "composer engine dev:qa" ],
     "dev:prod": [ "Composer\\Config::disableProcessTimeout", "composer engine dev:prod" ],
-    "engine": "cd ./vendor/zeiglerd/php-engine/ && composer",
+    "engine": [ "Composer\\Config::disableProcessTimeout", "cd ./vendor/zeiglerd/php-engine/ && composer" ],
     "grunt": "cd ./vendor/zeiglerd/php-engine/ && npx grunt",
     "post-install-cmd": "composer engine post-install-hook",
     "post-update-cmd": "composer engine post-update-hook",
