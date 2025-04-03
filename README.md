@@ -11,9 +11,15 @@ More information about this project can be found in `./vendor/zeiglerd/php-engin
 ## Setup dotenv
 
 - For each environment, clone and rename the respective `./.env.*.example` file; possible .env files include:
+
   - `./.env.local`
-  - `./.env.prod`
+
+  - `./.env.dev`
+
   - `./.env.qa`
+
+  - `./.env.prod`
+
 - > **NOTE:** `./dist/.env` is created by Grunt and will be overwritten at build time.
 
 
@@ -24,43 +30,70 @@ More information about this project can be found in `./vendor/zeiglerd/php-engin
 
 
 ### Install
+
 - `composer install`
 
 
 ### Update
+
 - `composer update`
 
 
 ### Grunt
+
 - `composer grunt`
 
 
 ### Build
+
 - `composer build:local`
-- `composer build:prod`
+
+- `composer build:dev`
+
 - `composer build:qa`
+
+- `composer build:prod`
+
 - **Options**
-  - `-- --env={local,qa,prod}`
+
+  - `-- --env={local,dev,qa,prod}`
+
   - `-- --verbose`
 
 
 ### Local Development
+
 - `composer dev:local`
-- `composer dev:prod`
+
+- `composer dev:dev`
+
 - `composer dev:qa`
+
+- `composer dev:prod`
+
 - *Options*
-  - `-- --env={local,qa,prod}`
+
+  - `-- --env={local,dev,qa,prod}`
+
   - `-- --verbose`
 
 
 ### Deploy
-- `composer deploy:prod`
+
+- `composer deploy:dev`
+
 - `composer deploy:qa`
+
+- `composer deploy:prod`
+
 - *Options*
-  - `-- --env={qa,prod}`
+
+  - `-- --env={dev,qa,prod}`
+
   - `-- --verbose`
 
 
 
 ## Dependencies
+
 - See **Dependencies** in `./vendor/zeiglerd/php-engine/README.md`.
