@@ -43,7 +43,7 @@ final class RouterTest extends TestCase
 
     $this->assertEquals("error404", $router->action);
     $this->assertEquals(["route"], $router->args);
-    // $this->assertEquals("{$toolkit->Config->projectNamespace}\PhpEngine\Controllers\ErrorController", $router->Controller);
+    // $this->assertEquals("ZeiglerD\{$toolkit->Config->projectNamespace}\Controllers\ErrorController", $router->Controller);
     $this->assertEquals("ZeiglerD\PhpEngine\Controllers\ErrorController", $router->Controller);
     $this->assertEquals("ErrorController", $router->controller);
     $this->assertEquals(0, $router->isDynamic);
