@@ -27,7 +27,7 @@ final class RouterTest extends TestCase
 
     $this->assertEquals("dynamic", $router->action);
     $this->assertEquals([], $router->args);
-    $this->assertEquals("{$toolkit->Config->projectNamespace}\PhpEngine\Controllers\HomeController", $router->Controller);
+    $this->assertEquals("ZeiglerD\PhpEngine\Controllers\HomeController", $router->Controller);
     $this->assertEquals("HomeController", $router->controller);
     $this->assertEquals(1, $router->isDynamic);
     $this->assertEquals("dynamic", $router->pureAction);
@@ -43,7 +43,8 @@ final class RouterTest extends TestCase
 
     $this->assertEquals("error404", $router->action);
     $this->assertEquals(["route"], $router->args);
-    $this->assertEquals("{$toolkit->Config->projectNamespace}\PhpEngine\Controllers\ErrorController", $router->Controller);
+    // $this->assertEquals("{$toolkit->Config->projectNamespace}\PhpEngine\Controllers\ErrorController", $router->Controller);
+    $this->assertEquals("ZeiglerD\PhpEngine\Controllers\ErrorController", $router->Controller);
     $this->assertEquals("ErrorController", $router->controller);
     $this->assertEquals(0, $router->isDynamic);
     $this->assertEquals("error404", $router->pureAction);
@@ -60,7 +61,7 @@ final class RouterTest extends TestCase
 
     $this->assertEquals("dynamic", $router->action);
     $this->assertEquals([], $router->args);
-    $this->assertEquals("{$toolkit->Config->projectNamespace}\PhpEngine\Controllers\HomeController", $router->Controller);
+    $this->assertEquals("ZeiglerD\PhpEngine\Controllers\HomeController", $router->Controller);
     $this->assertEquals("HomeController", $router->controller);
     $this->assertEquals(1, $router->isDynamic);
     $this->assertEquals("dynamic", $router->pureAction);
@@ -77,7 +78,7 @@ final class RouterTest extends TestCase
 
     $this->assertEquals("dynamic", $router->action);
     $this->assertEquals(["arg1", "arg2", "arg3"], $router->args);
-    $this->assertEquals("{$toolkit->Config->projectNamespace}\PhpEngine\Controllers\HomeController", $router->Controller);
+    $this->assertEquals("ZeiglerD\PhpEngine\Controllers\HomeController", $router->Controller);
     $this->assertEquals("HomeController", $router->controller);
     $this->assertEquals(1, $router->isDynamic);
     $this->assertEquals("dynamic", $router->pureAction);
@@ -93,7 +94,7 @@ final class RouterTest extends TestCase
 
     $this->assertEquals("dynamic", $router->action);
     $this->assertEquals(["arg1", "arg2"], $router->args);
-    $this->assertEquals("{$toolkit->Config->projectNamespace}\PhpEngine\Controllers\PageController", $router->Controller);
+    $this->assertEquals("ZeiglerD\PhpEngine\Controllers\PageController", $router->Controller);
     $this->assertEquals("PageController", $router->controller);
     $this->assertEquals(1, $router->isDynamic);
     $this->assertEquals("dynamic", $router->pureAction);
