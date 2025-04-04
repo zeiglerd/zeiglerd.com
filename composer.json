@@ -20,7 +20,7 @@
     "post-update-cmd": "composer engine post-update-hook",
     "pre-install-cmd": "[ -d ./vendor/zeiglerd/php-engine/ ] && (composer engine pre-install-hook) || echo >nul",
     "pre-update-cmd": "[ -d ./vendor/zeiglerd/php-engine/ ] && (composer engine pre-update-hook) || echo >nul",
-    "test": "./vendor/bin/phpunit tests"
+    "test": "./vendor/zeiglerd/php-engine/vendor/bin/phpunit tests"
   },
   "autoload": {
     "psr-4": {
