@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zeiglerd/php-engine.git",
-                "reference": "f4dac7fc8b12bc541de0b9017d562a3439cb8df2"
+                "reference": "25afab5fa1bf06038dac81b25b77e3cc2c049f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/f4dac7fc8b12bc541de0b9017d562a3439cb8df2",
-                "reference": "f4dac7fc8b12bc541de0b9017d562a3439cb8df2",
+                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/25afab5fa1bf06038dac81b25b77e3cc2c049f82",
+                "reference": "25afab5fa1bf06038dac81b25b77e3cc2c049f82",
                 "shasum": ""
             },
             "require": {
@@ -134,29 +134,39 @@
                 "build:local": [
                     "npx grunt build --env=local"
                 ],
-                "build:prod": [
-                    "npx grunt build --env=prod"
+                "build:dev": [
+                    "npx grunt build --env=dev"
                 ],
                 "build:qa": [
                     "npx grunt build --env=qa"
                 ],
-                "deploy:prod": [
-                    "npx grunt deploy --env=prod"
+                "build:prod": [
+                    "npx grunt build --env=prod"
+                ],
+                "deploy:dev": [
+                    "npx grunt deploy --env=dev"
                 ],
                 "deploy:qa": [
                     "npx grunt deploy --env=qa"
+                ],
+                "deploy:prod": [
+                    "npx grunt deploy --env=prod"
                 ],
                 "dev:local": [
                     "Composer\\Config::disableProcessTimeout",
                     "npx grunt dev --env=local"
                 ],
-                "dev:prod": [
+                "dev:dev": [
                     "Composer\\Config::disableProcessTimeout",
-                    "npx grunt dev --env=prod"
+                    "npx grunt dev --env=dev"
                 ],
                 "dev:qa": [
                     "Composer\\Config::disableProcessTimeout",
                     "npx grunt dev --env=qa"
+                ],
+                "dev:prod": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "npx grunt dev --env=prod"
                 ],
                 "post-install-cmd": [
                     "npm i"
@@ -165,10 +175,10 @@
                     "npm i"
                 ],
                 "post-install-hook": [
-                    "composer restore-git && npm i"
+                    "composer restore-git && composer install"
                 ],
                 "post-update-hook": [
-                    "composer restore-git && npm i"
+                    "composer restore-git && composer update"
                 ],
                 "pre-install-hook": [
                     "composer store-git"
@@ -177,13 +187,13 @@
                     "composer store-git"
                 ],
                 "restore-git": [
-                    "[ -d ~/AppData/Local/Temp/.git ] && (mv ~/AppData/Local/Temp/.git ./ && git restore . && git stash pop && rm ./.stash) || echo >nul"
+                    "[ -d ~/AppData/Local/Temp/.git/ ] && (mv ~/AppData/Local/Temp/.git/ ./ && git restore . && git stash pop && rm ./.stash) || echo >nul"
                 ],
                 "store-git": [
-                    "[ -d './.git' ] && (cd . > ./.stash && git stash -u && mv ./.git ~/AppData/Local/Temp) || echo >nul"
+                    "[ -d './.git' ] && (cd . > ./.stash && git stash -u && mv ./.git/ ~/AppData/Local/Temp/) || echo >nul"
                 ],
                 "test": [
-                    "./vendor/bin/phpunit tests"
+                    "./vendor/bin/phpunit/ tests"
                 ]
             },
             "authors": [
@@ -192,10 +202,9 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/zeiglerd/php-engine/tree/dev",
-                "issues": "https://github.com/zeiglerd/php-engine/issues"
+                "source": "https://github.com/zeiglerd/php-engine/tree/dev"
             },
-            "time": "2025-04-03T05:31:29+00:00"
+            "time": "2025-04-04T05:15:30+00:00"
         }
     ],
     "packages-dev": [],
