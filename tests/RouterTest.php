@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ZeiglerD\PhpEngine\UnitTests;
+namespace ZeiglerD\ZeiglerD\UnitTests;
 
 use ZeiglerD\PhpEngine\UnitTests\Helpers\QueryableHtml;
 use ZeiglerD\PhpEngine\UnitTests\Helpers\TestCase;
