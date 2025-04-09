@@ -1,10 +1,10 @@
-@import '../../../vendor/zeiglerd/php-engine/src/templates/{{ENGINE_THEME}}/variables';
+@import '../../../vendor/zeiglerd/php-engine/src/templates/{{engineTheme}}/variables';
 @import './variables';
 
-@import '../../../vendor/zeiglerd/php-engine/src/templates/{{ENGINE_THEME}}/mixins';
+@import '../../../vendor/zeiglerd/php-engine/src/templates/{{engineTheme}}/mixins';
 @import './mixins';
 
-@import '../../../vendor/zeiglerd/php-engine/src/templates/{{ENGINE_THEME}}/functions';
+@import '../../../vendor/zeiglerd/php-engine/src/templates/{{engineTheme}}/functions';
 @import './functions';
 
 @import './reset';
