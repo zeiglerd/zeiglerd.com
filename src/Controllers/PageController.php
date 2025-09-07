@@ -8,6 +8,12 @@ use ZeiglerD\PhpEngine\Models\Page;
 
 final class PageController extends Controller
 {
+  public function dynamic() {
+    if ($this->toolkit->router->viewPath) {
+      return $this->toolkit->template->renderView([]);
+    }
+  }
+
   const SENIOR_SOFTWARE_DEVELOPER_TITLE = 'Senior Software Developer';
   const SENIOR_SOFTWARE_DEVELOPER_PROFILE = 'Software developer with seven years of SaaS industry experience — working predominantly as a full-stack web developer in a JavaScript environment — architecting RESTful APIs, leveraging cloud computing for scalable solutions, and working alongside designers to create web applications utilizing JS, HTML5, and CSS3.';
 
@@ -660,7 +666,7 @@ final class PageController extends Controller
   }
 
   public final function getResumeTitle() {
-    return $this->t->Helpers->getHttpGet('title', self::SENIOR_SOFTWARE_DEVELOPER_TITLE);
+    return $this->toolkit->Helpers->getHttpGet('title', self::SENIOR_SOFTWARE_DEVELOPER_TITLE);
   }
 
   public final function getResumeProfile() {

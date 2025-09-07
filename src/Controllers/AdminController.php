@@ -16,6 +16,6 @@ class AdminController extends Controller
       'homepage' => 1
     ]);
 
-    return $this->t->Template->renderView([]);
+    return $this->toolkit->Template->renderView([]);
   }
 }

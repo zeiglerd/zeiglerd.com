@@ -46,7 +46,7 @@ final class Skill extends Model
   public final function findOneOrDispense($skill) {
     $sql = '';
     $bindings = [];
-    return $this->t->Db::findOneOrDispense('skill', $sql, $bindings);
+    return $this->toolkit->Db::findOneOrDispense('skill', $sql, $bindings);
   }
 
   /**

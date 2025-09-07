@@ -1,18 +1,16 @@
-@import '../../../vendor/zeiglerd/php-engine/src/templates/{{engineTheme}}/variables';
-@import './variables';
+// @use '../../../vendor/zeiglerd/php-engine/src/templates/{{engineTheme}}/variables';
+@use './variables';
 
-@import '../../../vendor/zeiglerd/php-engine/src/templates/{{engineTheme}}/mixins';
-@import './mixins';
+// @use '../../../vendor/zeiglerd/php-engine/src/templates/{{engineTheme}}/mixins';
+// @use './mixins';
 
-@import '../../../vendor/zeiglerd/php-engine/src/templates/{{engineTheme}}/functions';
-@import './functions';
+// @use '../../../vendor/zeiglerd/php-engine/src/templates/{{engineTheme}}/functions';
+// @use './functions';
 
-@import './reset';
+@use './reset';
 
-// Partials
-@import './partials/header/header';
+@use './partials/header/header';
 
-// Views
-@import './views/games/cheddar/cheddar';
-@import './views/games/geordie/geordie';
-@import './views/page/resume';
+@use './views/games/cheddar/cheddar';
+@use './views/games/geordie/geordie';
+@use './views/page/resume';

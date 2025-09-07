@@ -4,12 +4,12 @@
 
   <section class="max-width-fluid xxs-col">
 
-    <?php if ($this->t->Config->local) { ?>
+    <?php if ($this->toolkit->Config->local) { ?>
       <nav class="xxs-col no-print">
         <menu class="xxs-col">
-          <li><a href="<?= $this->t->Helpers::getLink('/page/resume/'); ?>">Senior Software Developer</a></li>
-          <li><a href="<?= $this->t->Helpers::getLink('/page/resume/?title=Senior%20PHP%20Developer'); ?>">Senior PHP Developer</a></li>
-          <li><a href="<?= $this->t->Helpers::getLink('/page/resume/?title=Senior%20Support%20Engineer'); ?>">Senior Support Engineer</a></li>
+          <li><a href="<?= $this->toolkit->helpers::getLink('/page/resume/'); ?>">Senior Software Developer</a></li>
+          <li><a href="<?= $this->toolkit->helpers::getLink('/page/resume/?title=Senior%20PHP%20Developer'); ?>">Senior PHP Developer</a></li>
+          <li><a href="<?= $this->toolkit->helpers::getLink('/page/resume/?title=Senior%20Support%20Engineer'); ?>">Senior Support Engineer</a></li>
         </menu>
       </nav>
     <?php } ?>
@@ -17,7 +17,7 @@
     <section class="xxs-col">
       <hgroup class="xxs-col text-center">
         <h1 class="xxs-col">Dustin Zeigler</h1>
-        <p class="xxs-col"><?= $this->t->Controller->getResumeTitle(); ?></p>
+        <p class="xxs-col"><?= $this->toolkit->Controller->getResumeTitle(); ?></p>
       </hgroup>
     </section>
 
@@ -26,7 +26,7 @@
         <h2 class="xxs-col">Profile</h2>
       </hgroup>
       <section class="xxs-col">
-        <p class="xxs-col text-center"><?= $this->t->Controller->getResumeProfile(); ?></p>
+        <p class="xxs-col text-center"><?= $this->toolkit->Controller->getResumeProfile(); ?></p>
       </section>
     </section>
 
@@ -73,7 +73,7 @@
           <section class="xxs-col">
             <p class="xxs-col">Seven years of industry experience with:</p>
             <ul class="xxs-col">
-              <?= $this->t->Controller->generateKeySkills(); ?>
+              <?= $this->toolkit->Controller->generateKeySkills(); ?>
             </ul>
           </section>
         </section>
@@ -85,7 +85,7 @@
           <section class="xxs-col">
             <p class="xxs-col">Some experience with:</p>
             <ul class="xxs-col">
-              <?= $this->t->Controller->generateAdditionalSkills(); ?>
+              <?= $this->toolkit->Controller->generateAdditionalSkills(); ?>
             </ul>
           </section>
         </section>
