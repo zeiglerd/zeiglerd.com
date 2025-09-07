@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zeiglerd/php-engine.git",
-                "reference": "94da0b73a82c0bd1501617d5fccca03b2b25c386"
+                "reference": "e7177f60f2c641bbae80afd2b3ac8153d57c0a17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/94da0b73a82c0bd1501617d5fccca03b2b25c386",
-                "reference": "94da0b73a82c0bd1501617d5fccca03b2b25c386",
+                "url": "https://api.github.com/repos/zeiglerd/php-engine/zipball/e7177f60f2c641bbae80afd2b3ac8153d57c0a17",
+                "reference": "e7177f60f2c641bbae80afd2b3ac8153d57c0a17",
                 "shasum": ""
             },
             "require": {
@@ -134,29 +134,39 @@
                 "build:local": [
                     "npx grunt build --env=local"
                 ],
-                "build:prod": [
-                    "npx grunt build --env=prod"
+                "build:dev": [
+                    "npx grunt build --env=dev"
                 ],
                 "build:qa": [
                     "npx grunt build --env=qa"
                 ],
-                "deploy:prod": [
-                    "npx grunt deploy --env=prod"
+                "build:prod": [
+                    "npx grunt build --env=prod"
+                ],
+                "deploy:dev": [
+                    "npx grunt deploy --env=dev"
                 ],
                 "deploy:qa": [
                     "npx grunt deploy --env=qa"
+                ],
+                "deploy:prod": [
+                    "npx grunt deploy --env=prod"
                 ],
                 "dev:local": [
                     "Composer\\Config::disableProcessTimeout",
                     "npx grunt dev --env=local"
                 ],
-                "dev:prod": [
+                "dev:dev": [
                     "Composer\\Config::disableProcessTimeout",
-                    "npx grunt dev --env=prod"
+                    "npx grunt dev --env=dev"
                 ],
                 "dev:qa": [
                     "Composer\\Config::disableProcessTimeout",
                     "npx grunt dev --env=qa"
+                ],
+                "dev:prod": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "npx grunt dev --env=prod"
                 ],
                 "post-install-cmd": [
                     "npm i"
@@ -164,11 +174,23 @@
                 "post-update-cmd": [
                     "npm i"
                 ],
-                "restore-engine-git": [
-                    "[ -d ~/AppData/Local/Temp/.git ] && (mv ~/AppData/Local/Temp/.git ./ && git restore . && git stash pop && rm ./.stash) || echo >nul"
+                "post-install-hook": [
+                    "composer restore-git && composer install"
                 ],
-                "store-engine-git": [
-                    "cd . > ./.stash && git stash -u && mv ./.git ~/AppData/Local/Temp && cd ./../../.."
+                "post-update-hook": [
+                    "composer restore-git && composer update"
+                ],
+                "pre-install-hook": [
+                    "composer store-git"
+                ],
+                "pre-update-hook": [
+                    "composer store-git"
+                ],
+                "restore-git": [
+                    "[ -d ~/AppData/Local/Temp/.git/ ] && (mv ~/AppData/Local/Temp/.git/ ./ && git restore . && git stash pop && rm ./.stash) || echo >nul"
+                ],
+                "store-git": [
+                    "[ -d './.git' ] && (cd . > ./.stash && git stash -u && mv ./.git/ ~/AppData/Local/Temp/) || echo >nul"
                 ],
                 "test": [
                     "./vendor/bin/phpunit tests"
@@ -182,7 +204,7 @@
             "support": {
                 "source": "https://github.com/zeiglerd/php-engine/tree/stable"
             },
-            "time": "2024-07-03T08:17:03+00:00"
+            "time": "2025-09-07T17:49:54+00:00"
         }
     ],
     "packages-dev": [],
