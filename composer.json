@@ -47,6 +47,6 @@
     }
   ],
   "require": {
-    "zeiglerd/php-engine": "dev-main"
+    "zeiglerd/php-engine": "dev-stable"
   }
 }
