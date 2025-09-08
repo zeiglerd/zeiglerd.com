@@ -30,44 +30,7 @@ final class PageController extends Controller
           'displayAsList' => true,
           'subSkills' => [
             [
-              'title' => '<a href="https://react.dev/" title="More About React">React</a>',
-              'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
-              'keySkill' => true,
-              'displayAsList' => true,
-              'subSkills' => [
-                [
-                  'title' => 'Component Lifecycle',
-                  'keySkill' => true,
-                ],
-                [
-                  'title' => 'Functional Components',
-                  'keySkill' => true,
-                ],
-                // [
-                //   'title' => 'JavaScript XML (JSX)',
-                //   'keySkill' => true,
-                // ],
-                [
-                  'title' => '<a href="https://react-redux.js.org/" title="More About React">Redux</a>',
-                  'keySkill' => true,
-                ],
-                // [
-                //   'title' => 'Server-Side Rendering',
-                //   'keySkill' => true,
-                // ],
-                [
-                  'title' => 'State Management',
-                  'keySkill' => true,
-                ]
-              ]
-            ],
-            [
-              'title' => 'Lazy Loading',
-              'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
-              'keySkill' => true,
-            ],
-            [
-              'title' => 'Tree Shaking',
+              'title' => 'RESTful APIs and Other Server-Side Solutions',
               'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
               'keySkill' => true,
             ],
@@ -81,14 +44,14 @@ final class PageController extends Controller
                   'title' => '<a href="https://aws.amazon.com/sdk-for-javascript" title="More About AWS SDK">AWS SDK</a>',
                   'keySkill' => true,
                 ],
-                [
-                  'title' => '<a href="https://axios-http.com/" title="More About Axios">Axios</a>',
-                  'keySkill' => true,
-                ],
-                [
-                  'title' => '<a href="https://date-fns.org" title="More About date-fns">date-fns</a>',
-                  'keySkill' => true,
-                ],
+                // [
+                //   'title' => '<a href="https://axios-http.com/" title="More About Axios">Axios</a>',
+                //   'keySkill' => true,
+                // ],
+                // [
+                //   'title' => '<a href="https://date-fns.org" title="More About date-fns">date-fns</a>',
+                //   'keySkill' => true,
+                // ],
                 [
                   'title' => '<a href="https://expressjs.com" title="More About Express">Express</a>',
                   'keySkill' => true,
@@ -146,7 +109,90 @@ final class PageController extends Controller
           ]
         ],
         [
-          'title' => '<a href="https://jquery.com/" title="More About jQuery">jQuery</a> and <a href="https://api.jquery.com/jQuery.ajax/" title="More About AJAX">AJAX</a>',
+          'title' => '<a href="https://react.dev/" title="More About React">React</a>',
+          'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
+          'keySkill' => true,
+          'displayAsList' => true,
+          'subSkills' => [
+            [
+              'title' => 'Component Lifecycle',
+              'keySkill' => true,
+            ],
+            [
+              'title' => 'Functional Components',
+              'keySkill' => true,
+            ],
+            // [
+            //   'title' => 'JavaScript XML (JSX)',
+            //   'keySkill' => true,
+            // ],
+            [
+              'title' => 'Lazy Loading',
+              'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
+              'keySkill' => true,
+            ],
+            [
+              'title' => '<a href="https://react-redux.js.org/" title="More About React">Redux</a>',
+              'keySkill' => true,
+            ],
+            // [
+            //   'title' => 'Server-Side Rendering',
+            //   'keySkill' => true,
+            // ],
+            [
+              'title' => 'State Management',
+              'keySkill' => true,
+            ],
+            [
+              'title' => 'Tree Shaking',
+              'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
+              'keySkill' => true,
+            ],
+            [
+              'title' => 'Many third-party modules, including',
+              'omittedRoles' => [self::SENIOR_SUPPORT_ENGINEER_TITLE],
+              'keySkill' => true,
+              'displayAsList' => false,
+              'subSkills' => [
+                // [
+                //   'title' => '<a href="https://aws.amazon.com/sdk-for-javascript" title="More About AWS SDK">AWS SDK</a>',
+                //   'keySkill' => true,
+                // ],
+                [
+                  'title' => '<a href="https://axios-http.com/" title="More About Axios">Axios</a>',
+                  'keySkill' => true,
+                ],
+                [
+                  'title' => '<a href="https://date-fns.org" title="More About date-fns">date-fns</a>',
+                  'keySkill' => true,
+                ],
+                // [
+                //   'title' => '<a href="https://expressjs.com" title="More About Express">Express</a>',
+                //   'keySkill' => true,
+                // ],
+                // [
+                //   'title' => '<a href="https://gruntjs.com/" title="More About Grunt.js">Grunt.js</a>',
+                //   'keySkill' => true,
+                // ],
+                // [
+                //   'title' => '<a href="https://hapi.dev/" title="More About hapi">hapi</a>',
+                //   'keySkill' => true,
+                // ],
+                [
+                  'title' => '<a href="https://lodash.com/" title="More About Lodash">Lodash</a>',
+                  'keySkill' => true,
+                ],
+                // [
+                //   'title' => '<a href="https://www.npmjs.com/package/nconf" title="More About nconf">nconf</a>',
+                //   'keySkill' => true,
+                // ],
+                [
+                  'title' => '<a href="https://socket.io" title="More About Socket.io">Socket.io</a>',
+                  'keySkill' => true,
+                ],
+              ],
+            ],
+          ]
         ],
         [
           'title' => 'Testing w/',
@@ -167,6 +213,9 @@ final class PageController extends Controller
               'keySkill' => true,
             ],
           ],
+        ],
+        [
+          'title' => '<a href="https://jquery.com/" title="More About jQuery">jQuery</a> and <a href="https://api.jquery.com/jQuery.ajax/" title="More About AJAX">AJAX</a>',
         ],
       ],
     ],
